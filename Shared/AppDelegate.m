@@ -60,6 +60,8 @@
 	[window addSubview:viewController.view];
 	// Make the window the first responder and visible on launch.
     [window makeKeyAndVisible];
+    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent];
     
     return YES;
 }

@@ -24,6 +24,8 @@
     NSMutableArray *_history_z;
 }
 
+- (void)shakeIntro;
+- (void)initAccelerometer;
 - (IBAction)updateTitle:(id)sender;
 - (void)playAudio;
 

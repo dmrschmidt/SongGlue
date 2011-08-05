@@ -25,6 +25,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self shakeIntro];
+    [self initAccelerometer];
+}
+
+- (void)initAccelerometer {
     // initialize the UIAccelerometer
     self.accelerometer = [UIAccelerometer sharedAccelerometer];
     self.accelerometer.updateInterval = .1;
@@ -33,10 +38,10 @@
     self.history_x = [[NSMutableArray alloc] initWithCapacity:5];
     self.history_y = [[NSMutableArray alloc] initWithCapacity:5];
     self.history_z = [[NSMutableArray alloc] initWithCapacity:5];
-    
+
     // initialize the audio samples
     NSMutableArray *samples = [[NSMutableArray alloc] initWithCapacity:6];
-    
+
     for(int i = 0; i < 6; i++) {
         NSString *name = [NSString stringWithFormat:@"bobby_%@", [NSNumber numberWithInt:i]];
         NSString *path = [[NSBundle mainBundle] pathForResource:name ofType:@"mp3"];
@@ -48,6 +53,27 @@
         [theAudio release];
     }
     self.audioSamples = [NSArray arrayWithArray:samples];
+}
+
+- (void)shakeIntro {
+    CGPoint center = self.labelView.center;
+    [UIView animateWithDuration:0.1
+                     animations:^{self.labelView.center = CGPointMake(center.x - 20, center.y);}
+                     completion:^(BOOL finished){
+                         [UIView animateWithDuration:0.1
+                                          animations:^{self.labelView.center =
+                                              CGPointMake(center.x + 20, center.y);}
+                                          completion:^(BOOL finished){
+                                              [UIView animateWithDuration:0.1
+                                                               animations:^{self.labelView.center = CGPointMake(center.x - 20, center.y);}
+                                                               completion:^(BOOL finished){
+                                                                   [UIView animateWithDuration:0.1
+                                                                                    animations:^{self.labelView.center = CGPointMake(160.f, center.y);}
+                                                                                    completion:^(BOOL finished){}];
+                                                               }];
+                                          }];
+                     }];
+
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -136,6 +162,7 @@
         // When the summed variation (since we want to detect shake in any direction)
         // is bigger than our (experimentally determined) threshold, trigger the update.
         if(variation_x + variation_y + variation_z > .5f) {
+            [self shakeIntro];
             [self updateTitle:self];
             [self playAudio];
         }
@@ -150,7 +177,7 @@
 		return NO;
 	}
 	
-    return YES;
+    return NO;
 }
 
 - (void) viewWillDisappear:(BOOL)animated
