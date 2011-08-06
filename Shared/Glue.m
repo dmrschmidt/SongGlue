@@ -60,12 +60,16 @@
     return modifiedString;
 }
 
+- (void)toggleGenerationMode {
+    self.generationMode = (self.generationMode + 1) % 2;
+}
+
 - (NSString *)gluedString {
     NSMutableString *shuffledText = [[NSMutableString alloc] init];
     
     for(int index = 0; index < [self.mediaItems count]; index++) {
         [shuffledText appendString:[self gluePartForIndex:index]];
-        [shuffledText appendString:@" "];
+        [shuffledText appendString:@"\n"];
     }
     return [shuffledText autorelease];
 }

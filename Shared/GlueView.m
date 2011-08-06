@@ -22,6 +22,7 @@ static CGFloat    kAlphaZeroThreshold   = 560.f;
 @synthesize labels = _labels;
 @synthesize scrollView = _scrollView;
 @synthesize index = _index;
+@synthesize glue = _glue;
 
 - (void)initLabelsWithContentOffsetY:(CGFloat)contentOffsetY {
     // first, init the label's parent container view
@@ -104,6 +105,12 @@ static CGFloat    kAlphaZeroThreshold   = 560.f;
     self.labelView.center = oldCenter;
 }
 
+- (void)updateText {
+    for(int labelIndex = 0; labelIndex < kLabelCount; labelIndex++) {
+        ((UILabel *)[self.labels objectAtIndex:labelIndex]).text = [self.glue gluePartForIndex:labelIndex];
+    }
+}
+
 - (void)configureAtIndex:(NSUInteger)index withGlue:(Glue *)glue {
     self.frame = CGRectMake([[UIScreen mainScreen] bounds].size.width * index,
                             0,
@@ -111,10 +118,19 @@ static CGFloat    kAlphaZeroThreshold   = 560.f;
                             // TODO: get rid of the hardcoded 70 here
                             [[UIScreen mainScreen] bounds].size.height - 70);
     self.index = index;
-    
-    for(int labelIndex = 0; labelIndex < kLabelCount; labelIndex++) {
-        ((UILabel *)[self.labels objectAtIndex:labelIndex]).text = [glue gluePartForIndex:labelIndex];
-    }
+    self.glue = glue;
+    [self updateText];
+}
+
+- (IBAction)toggleDisplayMode:(id)sender {
+    [self.glue toggleGenerationMode];
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.5];
+    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight
+                           forView:self
+                             cache:YES];
+    [self updateText];
+    [UIView commitAnimations];
 }
 
 - (void)shakeRecursiveStartingAt:(NSUInteger)loopCount {

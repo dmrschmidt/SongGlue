@@ -42,6 +42,10 @@ static GlueGenerator* sharedInstance = nil;
     _currentGenerationMode = generationMode;
 }
 
+- (void)toggleGenerationMode {
+    _currentGenerationMode = (_currentGenerationMode + 1) % 2;
+}
+
 - (Glue *)randomGlue {
     NSMutableArray *mediaItems = [[NSMutableArray alloc] initWithCapacity:3];
     for(NSUInteger i = 0; i < 3; i++) {

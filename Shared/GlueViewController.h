@@ -53,6 +53,12 @@
 - (IBAction)updateTitle:(id)sender;
 
 /*
+ * Toggles between the different GGGenerationModes.
+ * Also updates the currently displayed Glue.
+ */
+- (IBAction)toggleDisplayMode:(id)sender;
+
+/*
  * Plays a random audio sample (Bobby's hit sound).
  */
 - (void)playAudio;

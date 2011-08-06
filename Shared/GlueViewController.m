@@ -79,15 +79,28 @@
 #pragma mark -
 #pragma mark - Glue methods
 
-- (IBAction)updateTitle:(id)sender {
+- (GlueView *)currentGlueView {
     CGRect visibleBounds = self.scrollView.bounds;
     int neededPageIndex = floorf(CGRectGetMinX(visibleBounds) / CGRectGetWidth(visibleBounds));
     for(GlueView *pageGlueView in self.visiblePages) {
         if(pageGlueView.index == neededPageIndex) {
-            [pageGlueView configureAtIndex:neededPageIndex withGlue:[GlueGenerator randomGlue]];
-            [pageGlueView shake];
+            return pageGlueView;
         }
     }
+    return nil;
+}
+
+- (IBAction)updateTitle:(id)sender {
+    CGRect visibleBounds = self.scrollView.bounds;
+    int neededPageIndex = floorf(CGRectGetMinX(visibleBounds) / CGRectGetWidth(visibleBounds));
+    GlueView *pageGlueView = [self currentGlueView];
+    [pageGlueView configureAtIndex:neededPageIndex withGlue:[GlueGenerator randomGlue]];
+    [pageGlueView shake];
+}
+
+- (IBAction)toggleDisplayMode:(id)sender {
+    [[GlueGenerator sharedInstance] toggleGenerationMode];
+    [[self currentGlueView] toggleDisplayMode:sender];
 }
 
 #pragma mark -
@@ -214,6 +227,11 @@
     
     // for the shake movement detection
     [self.view becomeFirstResponder];
+    
+    // add a UITapGestureRecognizer
+    UIGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(toggleDisplayMode:)];
+    [self.view addGestureRecognizer:recognizer];
+    
 }
 
 - (void) viewWillDisappear:(BOOL)animated {

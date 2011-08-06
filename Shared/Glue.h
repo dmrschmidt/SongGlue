@@ -26,6 +26,11 @@ typedef NSUInteger GGGenerationMode;
 - (id)initWithMediaItems:(NSArray *)mediaItems;
 
 /*
+ * Toggles between the generation modes.
+ */
+- (void)toggleGenerationMode;
+
+/*
  * 
  */
 - (NSString *)gluePartForIndex:(NSUInteger)index;

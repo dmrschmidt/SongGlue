@@ -23,14 +23,19 @@
 + (GlueGenerator *)sharedInstance;
 
 /*
+ * Returns a random Glue instance.
+ */
++ (Glue *)randomGlue;
+
+/*
  * Sets the default generation mode for new Glues.
  */
 - (void)setGenerationMode:(GGGenerationMode)generationMode;
 
 /*
- * Returns a random Glue instance.
+ * Toggles between the generation modes.
  */
-+ (Glue *)randomGlue;
+- (void)toggleGenerationMode;
 
 /*
  * Returns a random title from the iPod.
