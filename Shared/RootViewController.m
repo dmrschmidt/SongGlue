@@ -83,7 +83,6 @@
 - (GlueView *)dequeRecycledPage {
     GlueView *glueView = [self.recycledPages anyObject];
     if(glueView) {
-        NSLog(@"recycling");
         [[glueView retain] autorelease];
         [self.recycledPages removeObject:glueView];
     }
