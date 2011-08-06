@@ -11,11 +11,13 @@
 @implementation GlueView
 
 @synthesize label = _label;
+@synthesize scrollView = _scrollView;
 @synthesize index = _index;
 
 - (id)init {
     NSLog(@"creating a new GlueView");
     if(self = [super init]) {
+        // set up the label
         self.label = [[UILabel alloc] init];
         self.label.backgroundColor = [UIColor clearColor];
         self.label.font = [UIFont fontWithName:@"AmericanTypewriter-Bold" size:23.0];
@@ -24,15 +26,33 @@
         self.label.numberOfLines = 10;
         self.label.shadowColor = [UIColor darkTextColor];
         self.label.shadowOffset = CGSizeMake(0, 1);
-        self.label.frame = CGRectMake(0, 0, 320, 200);
+        self.label.frame = CGRectMake(10, 300, 300, 200);
         
-        [self addSubview:self.label];
+        // set up the scrollView
+        self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(
+                                                0,
+                                                0,
+                                                [[UIScreen mainScreen] bounds].size.width,
+                                                // TODO: get rid of the hardcoded 70 here
+                                                [[UIScreen mainScreen] bounds].size.height - 70)];
+        self.scrollView.contentSize = CGSizeMake(
+                                                 [[UIScreen mainScreen] bounds].size.width,
+                                                 [[UIScreen mainScreen] bounds].size.height * 2);
+        self.scrollView.contentOffset = CGPointMake(0, 200);
+        
+        // set up the hierarchy
+        [self addSubview:self.scrollView];
+        [self.scrollView addSubview:self.label];
     }
     return self;
 }
 
 - (void)configureAtIndex:(NSUInteger)index withTitle:(NSString *)title {
-    self.frame = CGRectMake(320 * index, 0, 320, 200);
+    self.frame = CGRectMake([[UIScreen mainScreen] bounds].size.width * index,
+                            0,
+                            [[UIScreen mainScreen] bounds].size.width,
+                            // TODO: get rid of the hardcoded 70 here
+                            [[UIScreen mainScreen] bounds].size.height - 70);
     self.index = index;
     
     self.label.text = title;

@@ -24,7 +24,6 @@
 		9FEDA34B125BC13100D0F59C /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 9FEDA344125BC13100D0F59C /* iTunesArtwork */; };
 		C35C4B5513ECC17C0027A6ED /* GlueView.m in Sources */ = {isa = PBXBuildFile; fileRef = C35C4B5413ECC17C0027A6ED /* GlueView.m */; };
 		C35C4B5913ECD9E10027A6ED /* InfiniteScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = C35C4B5813ECD9E10027A6ED /* InfiniteScrollView.m */; };
-		C367DBFE13ED469A00EA3138 /* TitleGlueViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C367DBFC13ED469A00EA3138 /* TitleGlueViewController.xib */; };
 		C367DC0513ED58BB00EA3138 /* refresh@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C367DC0313ED58BB00EA3138 /* refresh@2x.png */; };
 		C367DC0613ED58BB00EA3138 /* world@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C367DC0413ED58BB00EA3138 /* world@2x.png */; };
 		C367DC0913ED592B00EA3138 /* refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = C367DC0713ED592B00EA3138 /* refresh.png */; };
@@ -75,7 +74,6 @@
 		C35C4B5413ECC17C0027A6ED /* GlueView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GlueView.m; path = Shared/GlueView.m; sourceTree = "<group>"; };
 		C35C4B5713ECD9E10027A6ED /* InfiniteScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InfiniteScrollView.h; path = Shared/InfiniteScrollView.h; sourceTree = "<group>"; };
 		C35C4B5813ECD9E10027A6ED /* InfiniteScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InfiniteScrollView.m; path = Shared/InfiniteScrollView.m; sourceTree = "<group>"; };
-		C367DBFC13ED469A00EA3138 /* TitleGlueViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TitleGlueViewController.xib; sourceTree = "<group>"; };
 		C367DC0313ED58BB00EA3138 /* refresh@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "refresh@2x.png"; sourceTree = "<group>"; };
 		C367DC0413ED58BB00EA3138 /* world@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "world@2x.png"; sourceTree = "<group>"; };
 		C367DC0713ED592B00EA3138 /* refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = refresh.png; sourceTree = "<group>"; };
@@ -132,14 +130,14 @@
 			children = (
 				9FC6A490126CE71E008D73BA /* AppDelegate.h */,
 				9FC6A491126CE71E008D73BA /* AppDelegate.m */,
-				9F2632D412638B5C00DA83F1 /* LocalGlueViewController.h */,
-				9F2632D512638B5C00DA83F1 /* LocalGlueViewController.m */,
 				C35C4B5313ECC17C0027A6ED /* GlueView.h */,
 				C35C4B5413ECC17C0027A6ED /* GlueView.m */,
 				C35C4B5713ECD9E10027A6ED /* InfiniteScrollView.h */,
 				C35C4B5813ECD9E10027A6ED /* InfiniteScrollView.m */,
 				C367DC1913ED5B0400EA3138 /* GlueViewController.h */,
 				C367DC1A13ED5B0400EA3138 /* GlueViewController.m */,
+				9F2632D412638B5C00DA83F1 /* LocalGlueViewController.h */,
+				9F2632D512638B5C00DA83F1 /* LocalGlueViewController.m */,
 				C367DC2113ED5B4D00EA3138 /* WorldGlueViewController.h */,
 				C367DC2213ED5B4D00EA3138 /* WorldGlueViewController.m */,
 			);
@@ -187,7 +185,6 @@
 				9FC6A52B126D05E2008D73BA /* MainWindow.xib */,
 				C367DC2313ED5B4D00EA3138 /* WorldGlueViewController.xib */,
 				C367DC1E13ED5B2F00EA3138 /* LocalGlueViewController.xib */,
-				C367DBFC13ED469A00EA3138 /* TitleGlueViewController.xib */,
 				8D1107310486CEB800E47090 /* Icons-Info.plist */,
 				9FEDA33D125BC13100D0F59C /* Images */,
 				9F2BD5F21263DA8A0016473B /* Settings.bundle */,
@@ -300,7 +297,6 @@
 				C36BBA0113EC613000AE1A35 /* Default@2x.png in Resources */,
 				C36BBA0313EC616200AE1A35 /* Icon@2x.png in Resources */,
 				C36BBA0513EC6DE300AE1A35 /* wood@2x.png in Resources */,
-				C367DBFE13ED469A00EA3138 /* TitleGlueViewController.xib in Resources */,
 				C367DC0513ED58BB00EA3138 /* refresh@2x.png in Resources */,
 				C367DC0613ED58BB00EA3138 /* world@2x.png in Resources */,
 				C367DC0913ED592B00EA3138 /* refresh.png in Resources */,

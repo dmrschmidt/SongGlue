@@ -10,6 +10,7 @@
 
 @interface GlueView : UIView {
     UILabel *_label;
+    UIScrollView *_scrollView;
     NSUInteger _index;
 }
 
@@ -18,6 +19,7 @@
 - (void)shake;
 
 @property(nonatomic, retain) UILabel *label;
+@property(nonatomic, retain) UIScrollView *scrollView;
 @property(assign) NSUInteger index;
 
 @end
