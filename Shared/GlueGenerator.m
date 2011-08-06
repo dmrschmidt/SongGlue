@@ -32,30 +32,16 @@ static GlueGenerator* sharedInstance = nil;
     return self;
 }
 
-- (NSString *)randomTitle {
-    NSMutableString *shuffledText = [[NSMutableString alloc] init];
-    
-    NSError *error = NULL;
-    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"\\([^)]*\\)"
-                                                                           options:0
-                                                                             error:&error];
-    
+- (Glue *)randomGlue {
+    NSMutableArray *mediaItems = [[NSMutableArray alloc] initWithCapacity:3];
     for(NSUInteger i = 0; i < 3; i++) {
         NSUInteger songItemIndex = arc4random() % [[self itemsFromGenericQuery] count];
-        MPMediaItem *song = [[self itemsFromGenericQuery] objectAtIndex:songItemIndex];
-        NSString *songTitle = [NSString stringWithString:[song valueForProperty: MPMediaItemPropertyTitle]];
-        
-        // remove brackets
-        NSString *modifiedString = [regex stringByReplacingMatchesInString:songTitle
-                                                                   options:0
-                                                                     range:NSMakeRange(0, [songTitle length])
-                                                              withTemplate:@""];
-        
-        [shuffledText appendString:modifiedString];
-        if(i < 2) [shuffledText appendString:@"\n"];
+        MPMediaItem *mediaItem = [[self itemsFromGenericQuery] objectAtIndex:songItemIndex];
+        [mediaItems addObject:mediaItem];
     }
+    Glue *newGlue = [[Glue alloc] initWithMediaItems:mediaItems];
     
-    return [shuffledText autorelease];
+    return [newGlue autorelease];
 }
 
 @end

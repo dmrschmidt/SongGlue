@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <MediaPlayer/MediaPlayer.h>
+#import "Glue.h"
 
 @interface GlueGenerator : NSObject {
     NSArray *_itemsFromGenericQuery;
@@ -23,6 +24,6 @@
 /*
  * Returns a random title from the iPod.
  */
-- (NSString *)randomTitle;
+- (Glue *)randomGlue;
 
 @end

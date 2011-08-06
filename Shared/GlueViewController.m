@@ -85,7 +85,7 @@
     for(GlueView *pageGlueView in self.visiblePages) {
         if(pageGlueView.index == neededPageIndex) {
             [pageGlueView configureAtIndex:neededPageIndex withTitle:
-                [[GlueGenerator sharedInstance] randomTitle]];
+                [[[GlueGenerator sharedInstance] randomGlue] gluedString]];
             [pageGlueView shake];
         }
     }
@@ -117,7 +117,8 @@
             if(glueView == nil) {
                 glueView = [[[GlueView alloc] init] autorelease];
             }
-            [glueView configureAtIndex:index withTitle:[[GlueGenerator sharedInstance] randomTitle]];
+            [glueView configureAtIndex:index withTitle:
+                [[[GlueGenerator sharedInstance] randomGlue] gluedString]];
             [self.scrollView addSubview:glueView];
             [self.visiblePages addObject:glueView];
         }
