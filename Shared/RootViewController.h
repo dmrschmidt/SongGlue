@@ -11,6 +11,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import "ShakingView.h"
 #import "GlueView.h"
+#import "InfiniteScrollView.h"
 
 @interface RootViewController : UIViewController <UIAccelerometerDelegate, UIScrollViewDelegate> {
     UILabel *_labelView;

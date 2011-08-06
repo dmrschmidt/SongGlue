@@ -41,7 +41,7 @@
 
 - (void)initScrollView {
     CGRect frame = CGRectMake(0, 150, 320, 200);
-    self.scrollView = [[UIScrollView alloc] initWithFrame:frame];
+    self.scrollView = [[InfiniteScrollView alloc] initWithFrame:frame];
     self.scrollView.delegate = self;
     self.scrollView.pagingEnabled = YES;
     self.scrollView.contentSize = CGSizeMake(frame.size.width * [self glueCount], frame.size.height);

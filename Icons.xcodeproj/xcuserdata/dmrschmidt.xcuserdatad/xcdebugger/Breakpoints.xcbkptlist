@@ -14,8 +14,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "136"
          endingLineNumber = "136"
-         landmarkName = "@implementation RootViewController"
-         landmarkType = "3">
+         landmarkName = "-shakeIntro"
+         landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
