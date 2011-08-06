@@ -136,6 +136,7 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
+    // for the shake movement detection
     [self.view becomeFirstResponder];
 }
 
