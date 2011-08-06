@@ -22,6 +22,8 @@
         self.label.textAlignment = UITextAlignmentCenter;
         self.label.textColor = [UIColor lightTextColor];
         self.label.numberOfLines = 10;
+        self.label.shadowColor = [UIColor darkTextColor];
+        self.label.shadowOffset = CGSizeMake(0, 1);
         self.label.frame = CGRectMake(0, 0, 320, 200);
         
         [self addSubview:self.label];
