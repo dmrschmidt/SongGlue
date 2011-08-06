@@ -109,6 +109,10 @@ static BOOL scrolled = NO;
 #pragma mark -
 #pragma mark - InfiniteScrollView methods
 
+- (GlueView *)buildGlueView {
+    return [[[GlueView alloc] init] autorelease];
+}
+
 - (void)tilePages {
     CGRect visibleBounds = self.scrollView.bounds;
     int firstNeededPageIndex = floorf(CGRectGetMinX(visibleBounds) / CGRectGetWidth(visibleBounds));
@@ -130,7 +134,7 @@ static BOOL scrolled = NO;
         if(![self isDisplayingPageForIndex:index]) {
             GlueView *glueView = [self dequeRecycledPage];
             if(glueView == nil) {
-                glueView = [[[GlueView alloc] init] autorelease];
+                glueView = [self buildGlueView];
             }
             [glueView configureAtIndex:index withGlue:[GlueGenerator randomGlue]];
             [self.scrollView addSubview:glueView];

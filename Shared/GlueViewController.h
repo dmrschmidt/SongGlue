@@ -32,6 +32,11 @@
 - (NSUInteger)glueCount;
 
 /*
+ * Creates and generally configures a new GlueView.
+ */
+- (GlueView *)buildGlueView;
+
+/*
  *
  */
 - (GlueView *)dequeRecycledPage;
