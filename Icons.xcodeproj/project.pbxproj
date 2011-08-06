@@ -23,6 +23,7 @@
 		9FEDA348125BC13100D0F59C /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FEDA341125BC13100D0F59C /* Icon-Small@2x.png */; };
 		9FEDA349125BC13100D0F59C /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FEDA342125BC13100D0F59C /* Icon.png */; };
 		9FEDA34B125BC13100D0F59C /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 9FEDA344125BC13100D0F59C /* iTunesArtwork */; };
+		C35C4B5513ECC17C0027A6ED /* GlueView.m in Sources */ = {isa = PBXBuildFile; fileRef = C35C4B5413ECC17C0027A6ED /* GlueView.m */; };
 		C36BB9C913EB58E400AE1A35 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C36BB9C813EB58E400AE1A35 /* MediaPlayer.framework */; };
 		C36BB9D113EC021A00AE1A35 /* ShakingView.m in Sources */ = {isa = PBXBuildFile; fileRef = C36BB9D013EC021A00AE1A35 /* ShakingView.m */; };
 		C36BB9E713EC2F4B00AE1A35 /* Bobby.m4a in Resources */ = {isa = PBXBuildFile; fileRef = C36BB9E613EC2F4B00AE1A35 /* Bobby.m4a */; };
@@ -63,6 +64,8 @@
 		9FEDA341125BC13100D0F59C /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
 		9FEDA342125BC13100D0F59C /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		9FEDA344125BC13100D0F59C /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
+		C35C4B5313ECC17C0027A6ED /* GlueView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GlueView.h; path = Shared/GlueView.h; sourceTree = "<group>"; };
+		C35C4B5413ECC17C0027A6ED /* GlueView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GlueView.m; path = Shared/GlueView.m; sourceTree = "<group>"; };
 		C36BB9C813EB58E400AE1A35 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		C36BB9CF13EC021A00AE1A35 /* ShakingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShakingView.h; path = Shared/ShakingView.h; sourceTree = "<group>"; };
 		C36BB9D013EC021A00AE1A35 /* ShakingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShakingView.m; path = Shared/ShakingView.m; sourceTree = "<group>"; };
@@ -115,6 +118,8 @@
 				9F2632D512638B5C00DA83F1 /* RootViewController.m */,
 				C36BB9CF13EC021A00AE1A35 /* ShakingView.h */,
 				C36BB9D013EC021A00AE1A35 /* ShakingView.m */,
+				C35C4B5313ECC17C0027A6ED /* GlueView.h */,
+				C35C4B5413ECC17C0027A6ED /* GlueView.m */,
 			);
 			name = Shared;
 			sourceTree = "<group>";
@@ -289,6 +294,7 @@
 				9F2632DC12638B8700DA83F1 /* main.m in Sources */,
 				9FC6A492126CE71E008D73BA /* AppDelegate.m in Sources */,
 				C36BB9D113EC021A00AE1A35 /* ShakingView.m in Sources */,
+				C35C4B5513ECC17C0027A6ED /* GlueView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

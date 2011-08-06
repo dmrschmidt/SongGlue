@@ -18,6 +18,8 @@
 @synthesize history_x = _history_x;
 @synthesize history_y = _history_y;
 @synthesize history_z = _history_z;
+@synthesize scrollView = _scrollView;
+@synthesize visiblePages = _visiblePages;
 
 #pragma mark -
 #pragma mark - Shuffle methods
@@ -25,8 +27,64 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self shakeIntro];
+    _visiblePages = [[NSMutableSet alloc] init];
+    
+    // initially cache the data
+    [self setItemsFromGenericQuery:[[MPMediaQuery songsQuery] items]];
+    [self.labelView removeFromSuperview];
+    
+    [self initScrollView];
     [self initAccelerometer];
+}
+
+- (void)initScrollView {
+    CGRect frame = CGRectMake(0, 150, 320, 200);
+    self.scrollView = [[UIScrollView alloc] initWithFrame:frame];
+    self.scrollView.delegate = self;
+    self.scrollView.pagingEnabled = YES;
+    self.scrollView.contentSize = CGSizeMake(frame.size.width * [self glueCount], frame.size.height);
+    [self.view addSubview:self.scrollView];
+    
+    [self tilePages];
+}
+
+- (void)tilePages {
+    CGRect visibleBounds = self.scrollView.bounds;
+    int firstNeededPageIndex = floorf(CGRectGetMinX(visibleBounds) / CGRectGetWidth(visibleBounds));
+    int lastNeededPageIndex = floorf((CGRectGetMaxX(visibleBounds)-1) / CGRectGetWidth(visibleBounds));
+    firstNeededPageIndex = MAX(firstNeededPageIndex, 0);
+    lastNeededPageIndex = MIN(lastNeededPageIndex, [self glueCount] - 1);
+    
+    // Recycle no longer-needed pages
+    
+    // add missing pages
+    for(int index = firstNeededPageIndex; index <= lastNeededPageIndex; index++) {
+        NSLog(@"at index: %@", [NSNumber numberWithInt:index]);
+        if(![self isDisplayingPageForIndex:index]) {
+            NSString *title = [self randomTitle];
+            GlueView *glueView = [[GlueView alloc] initWithIndex:index andTitle:title];
+            [self.scrollView addSubview:glueView];
+            [self.visiblePages addObject:glueView];
+        }
+    }
+}
+
+- (BOOL)isDisplayingPageForIndex:(NSUInteger)index {
+    for(GlueView *glueView in self.visiblePages) {
+        if(glueView.index == index) {
+            return YES;
+        }
+    }
+    return NO;
+}
+
+- (NSUInteger)glueCount {
+    // for now just static
+    return 5;
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    [self tilePages];
 }
 
 - (void)initAccelerometer {
@@ -80,15 +138,11 @@
     [super viewDidAppear:animated];
     
     [self.view becomeFirstResponder];
-    
-    // initially cache the data
-    NSLog(@"Loading items from a generic query...");
-    [self setItemsFromGenericQuery:[[MPMediaQuery songsQuery] items]];
-    NSLog(@"Done loading.");
 }
 
 
 - (IBAction)updateTitle:(id)sender {
+    [self shakeIntro];
     NSMutableString *shuffledText = [[NSMutableString alloc] init];
     
     NSError *error = NULL;
@@ -113,6 +167,32 @@
     
     self.labelView.text = shuffledText;
     [shuffledText release];
+}
+
+- (NSString *)randomTitle {
+    NSMutableString *shuffledText = [[NSMutableString alloc] init];
+    
+    NSError *error = NULL;
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"\\([^)]*\\)"
+                                                                           options:0
+                                                                             error:&error];
+    
+    for(NSUInteger i = 0; i < 3; i++) {
+        NSUInteger songItemIndex = arc4random() % [[self itemsFromGenericQuery] count];
+        MPMediaItem *song = [[self itemsFromGenericQuery] objectAtIndex:songItemIndex];
+        NSString *songTitle = [NSString stringWithString:[song valueForProperty: MPMediaItemPropertyTitle]];
+        
+        // remove brackets
+        NSString *modifiedString = [regex stringByReplacingMatchesInString:songTitle
+                                                                   options:0
+                                                                     range:NSMakeRange(0, [songTitle length])
+                                                              withTemplate:@""];
+        
+        [shuffledText appendString:modifiedString];
+        if(i < 2) [shuffledText appendString:@"\n"];
+    }
+    
+    return [shuffledText autorelease];
 }
 
 - (void)playAudio {
@@ -162,7 +242,6 @@
         // When the summed variation (since we want to detect shake in any direction)
         // is bigger than our (experimentally determined) threshold, trigger the update.
         if(variation_x + variation_y + variation_z > .5f) {
-            [self shakeIntro];
             [self updateTitle:self];
             [self playAudio];
         }
