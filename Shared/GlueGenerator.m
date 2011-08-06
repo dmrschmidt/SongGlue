@@ -31,9 +31,15 @@ static GlueGenerator* sharedInstance = nil;
     if (self) {
         // initially cache the data
         [self setItemsFromGenericQuery:[[MPMediaQuery songsQuery] items]];
+        // set default GGGenerationMode
+        _currentGenerationMode = GGGenerationModeDefault;
     }
     
     return self;
+}
+
+- (void)setGenerationMode:(GGGenerationMode)generationMode {
+    _currentGenerationMode = generationMode;
 }
 
 - (Glue *)randomGlue {
@@ -44,6 +50,7 @@ static GlueGenerator* sharedInstance = nil;
         [mediaItems addObject:mediaItem];
     }
     Glue *newGlue = [[Glue alloc] initWithMediaItems:mediaItems];
+    newGlue.generationMode = _currentGenerationMode;
     
     return [newGlue autorelease];
 }

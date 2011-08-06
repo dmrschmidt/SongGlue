@@ -12,13 +12,35 @@
 @implementation Glue
 
 @synthesize mediaItems = _mediaItems;
+@synthesize generationMode = _generationMode;
 
 - (id)initWithMediaItems:(NSArray *)mediaItems {
     self = [super init];
     if (self) {
         self.mediaItems = mediaItems;
+        // set default generation mode
+        _generationMode = GGGenerationModeDefault;
     }
     return self;
+}
+
+/*
+ * Returns the MPMediaItemProperty for the corresponding index, depending
+ * on the currently set GGGenerationMode.
+ */
+- (NSString *const) mediaItemPropertyForIndex:(NSUInteger)index {
+    switch (self.generationMode) {
+        case GGGenerationModeMixed:
+            switch(index) {
+                case 0:  return MPMediaItemPropertyArtist;
+                case 1:  return MPMediaItemPropertyAlbumTitle;
+                case 2:  return MPMediaItemPropertyTitle;
+                default: break;
+            }
+        case GGGenerationModeSongNames:
+        default:
+            return MPMediaItemPropertyTitle;
+    }
 }
 
 - (NSString *)gluePartForIndex:(NSUInteger)index {
@@ -27,12 +49,13 @@
                                                                            options:0
                                                                              error:&error];
     MPMediaItem *mediaItem = [self.mediaItems objectAtIndex:index];
-    NSString *songTitle = [NSString stringWithString:[mediaItem valueForProperty: MPMediaItemPropertyTitle]];
+    NSString *property = [NSString stringWithString:[mediaItem valueForProperty:
+                                                      [self mediaItemPropertyForIndex:index]]];
     
     // remove brackets
-    NSString *modifiedString = [regex stringByReplacingMatchesInString:songTitle
+    NSString *modifiedString = [regex stringByReplacingMatchesInString:property
                                                                options:0
-                                                                 range:NSMakeRange(0, [songTitle length])
+                                                                 range:NSMakeRange(0, [property length])
                                                           withTemplate:@""];
     return modifiedString;
 }

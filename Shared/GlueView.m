@@ -41,6 +41,7 @@ static CGFloat    kAlphaZeroThreshold   = 560.f;
         label.numberOfLines = 1;
         label.shadowColor = [UIColor darkTextColor];
         label.shadowOffset = CGSizeMake(0, 1);
+        label.adjustsFontSizeToFitWidth = YES;
         label.minimumFontSize = 3;
         label.lineBreakMode = UILineBreakModeTailTruncation;
         label.autoresizingMask = UIViewAutoresizingFlexibleWidth;
@@ -116,26 +117,18 @@ static CGFloat    kAlphaZeroThreshold   = 560.f;
     }
 }
 
-- (void)shake {
+- (void)shakeRecursiveStartingAt:(NSUInteger)loopCount {
     CGPoint center = self.labelView.center;
+    CGFloat newCenterX = center.x - 20;
     [UIView animateWithDuration:0.1
-                     animations:^{self.labelView.center = CGPointMake(center.x - 20, center.y);}
-                     completion:^(BOOL finished){
-                         [UIView animateWithDuration:0.1
-                                          animations:^{self.labelView.center =
-                                              CGPointMake(center.x + 20, center.y);}
-                                          completion:^(BOOL finished){
-                                              [UIView animateWithDuration:0.1
-                                                               animations:^{self.labelView.center = CGPointMake(center.x - 20, center.y);}
-                                                               completion:^(BOOL finished){
-                                                                   [UIView animateWithDuration:0.1
-                                                                                    animations:^{self.labelView.center = CGPointMake(160.f, center.y);}
-                                                                                    completion:^(BOOL finished){}];
-                                                               }];
-                                          }];
-                     }];
-    
+                     animations:^{self.labelView.center = CGPointMake(newCenterX, center.y);}
+                     completion:^(BOOL finished){ [self shakeRecursiveStartingAt:(loopCount+1)]; }];
 }
+
+- (void)shake {
+    [self shakeRecursiveStartingAt:0];
+}
+
 
 
 @end

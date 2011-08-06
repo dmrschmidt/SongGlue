@@ -12,6 +12,7 @@
 
 @interface GlueGenerator : NSObject {
     NSArray *_itemsFromGenericQuery;
+    GGGenerationMode _currentGenerationMode;
 }
 
 @property(nonatomic, retain) NSArray *itemsFromGenericQuery;
@@ -20,6 +21,11 @@
  * Returns the Singleton GlueGenerator;
  */
 + (GlueGenerator *)sharedInstance;
+
+/*
+ * Sets the default generation mode for new Glues.
+ */
+- (void)setGenerationMode:(GGGenerationMode)generationMode;
 
 /*
  * Returns a random Glue instance.
