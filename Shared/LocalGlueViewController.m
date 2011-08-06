@@ -6,9 +6,9 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "RootViewController.h"
+#import "LocalGlueViewController.h"
 
-@implementation RootViewController
+@implementation LocalGlueViewController
 
 @synthesize labelView = _labelView;
 @synthesize buttonView = _buttonView;
@@ -39,7 +39,7 @@
 }
 
 - (void)initScrollView {
-    CGRect frame = CGRectMake(0, 120, 320, 200);
+    CGRect frame = CGRectMake(0, 100, 320, 200);
     self.scrollView = [[InfiniteScrollView alloc] initWithFrame:frame];
     self.scrollView.delegate = self;
     self.scrollView.pagingEnabled = YES;

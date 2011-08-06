@@ -47,15 +47,30 @@
 
 #import <UIKit/UIKit.h>
 
-@class RootViewController;
+@class LocalGlueViewController;
 
-@interface AppDelegate : NSObject <UIApplicationDelegate> {
+@interface AppDelegate : NSObject <UIApplicationDelegate, UITabBarControllerDelegate> {
     UIWindow *window;
-	RootViewController *viewController;
+	UITabBarController *tabBarController;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
-@property (nonatomic, retain) IBOutlet RootViewController *viewController;
+@property (nonatomic, retain) IBOutlet UITabBarController *tabBarController;
 
 @end
+
+//@interface PigeonAppDelegate : NSObject <UIApplicationDelegate, UITabBarControllerDelegate> {
+//    UIWindow *window;
+//    UITabBarController *tabBarController;
+//}
+//
+//@property (nonatomic, retain) IBOutlet UIWindow *window;
+//@property (nonatomic, retain) IBOutlet UITabBarController *tabBarController;
+//
+////- (void)createEditableCopyOfDatabaseIfNeeded;
+//- (NSURL *)applicationDocumentsDirectory;
+////- (void)saveContext;
+//
+//@end
+
 

@@ -46,18 +46,18 @@
  */
 
 #import "AppDelegate.h"
-#import "RootViewController.h"
+#import "LocalGlueViewController.h"
 
 @implementation AppDelegate
 
-@synthesize window, viewController;
+@synthesize window, tabBarController;
 
 #pragma mark -
 #pragma mark Application lifecycle
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 	// Add the root view controller view to the window.
-	[window addSubview:viewController.view];
+	[window addSubview:tabBarController.view];
 	// Make the window the first responder and visible on launch.
     [window makeKeyAndVisible];
     [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
@@ -117,7 +117,7 @@
 
 - (void)dealloc {
     [window release];
-	[viewController release];
+	[tabBarController release];
     [super dealloc];
 }
 

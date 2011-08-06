@@ -11,12 +11,11 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		9F2632C01263890E00DA83F1 /* ReadMe.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9F2632BF1263890E00DA83F1 /* ReadMe.txt */; };
-		9F2632D812638B5C00DA83F1 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F2632D512638B5C00DA83F1 /* RootViewController.m */; };
+		9F2632D812638B5C00DA83F1 /* LocalGlueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F2632D512638B5C00DA83F1 /* LocalGlueViewController.m */; };
 		9F2632DC12638B8700DA83F1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F2632DB12638B8700DA83F1 /* main.m */; };
 		9F2BD5F31263DA8A0016473B /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9F2BD5F21263DA8A0016473B /* Settings.bundle */; };
 		9FC6A492126CE71E008D73BA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC6A491126CE71E008D73BA /* AppDelegate.m */; };
 		9FC6A52F126D05E2008D73BA /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FC6A52B126D05E2008D73BA /* MainWindow.xib */; };
-		9FC6A530126D05E2008D73BA /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FC6A52D126D05E2008D73BA /* RootViewController.xib */; };
 		9FEDA345125BC13100D0F59C /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FEDA33E125BC13100D0F59C /* Icon-72.png */; };
 		9FEDA346125BC13100D0F59C /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FEDA33F125BC13100D0F59C /* Icon-Small-50.png */; };
 		9FEDA347125BC13100D0F59C /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FEDA340125BC13100D0F59C /* Icon-Small.png */; };
@@ -25,16 +24,24 @@
 		9FEDA34B125BC13100D0F59C /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 9FEDA344125BC13100D0F59C /* iTunesArtwork */; };
 		C35C4B5513ECC17C0027A6ED /* GlueView.m in Sources */ = {isa = PBXBuildFile; fileRef = C35C4B5413ECC17C0027A6ED /* GlueView.m */; };
 		C35C4B5913ECD9E10027A6ED /* InfiniteScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = C35C4B5813ECD9E10027A6ED /* InfiniteScrollView.m */; };
+		C367DBFE13ED469A00EA3138 /* TitleGlueViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C367DBFC13ED469A00EA3138 /* TitleGlueViewController.xib */; };
+		C367DC0513ED58BB00EA3138 /* refresh@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C367DC0313ED58BB00EA3138 /* refresh@2x.png */; };
+		C367DC0613ED58BB00EA3138 /* world@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C367DC0413ED58BB00EA3138 /* world@2x.png */; };
+		C367DC0913ED592B00EA3138 /* refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = C367DC0713ED592B00EA3138 /* refresh.png */; };
+		C367DC0A13ED592B00EA3138 /* world.png in Resources */ = {isa = PBXBuildFile; fileRef = C367DC0813ED592B00EA3138 /* world.png */; };
+		C367DC1213ED5A5200EA3138 /* bobby_0.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C367DC0B13ED5A5200EA3138 /* bobby_0.mp3 */; };
+		C367DC1313ED5A5200EA3138 /* bobby_1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C367DC0C13ED5A5200EA3138 /* bobby_1.mp3 */; };
+		C367DC1413ED5A5200EA3138 /* bobby_2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C367DC0D13ED5A5200EA3138 /* bobby_2.mp3 */; };
+		C367DC1513ED5A5200EA3138 /* bobby_3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C367DC0E13ED5A5200EA3138 /* bobby_3.mp3 */; };
+		C367DC1613ED5A5200EA3138 /* bobby_4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C367DC0F13ED5A5200EA3138 /* bobby_4.mp3 */; };
+		C367DC1713ED5A5200EA3138 /* bobby_5.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C367DC1013ED5A5200EA3138 /* bobby_5.mp3 */; };
+		C367DC1813ED5A5200EA3138 /* Bobby.m4a in Resources */ = {isa = PBXBuildFile; fileRef = C367DC1113ED5A5200EA3138 /* Bobby.m4a */; };
+		C367DC1B13ED5B0400EA3138 /* GlueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C367DC1A13ED5B0400EA3138 /* GlueViewController.m */; };
+		C367DC2013ED5B2F00EA3138 /* LocalGlueViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C367DC1E13ED5B2F00EA3138 /* LocalGlueViewController.xib */; };
+		C367DC2413ED5B4D00EA3138 /* WorldGlueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C367DC2213ED5B4D00EA3138 /* WorldGlueViewController.m */; };
+		C367DC2513ED5B4D00EA3138 /* WorldGlueViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C367DC2313ED5B4D00EA3138 /* WorldGlueViewController.xib */; };
 		C36BB9C913EB58E400AE1A35 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C36BB9C813EB58E400AE1A35 /* MediaPlayer.framework */; };
-		C36BB9D113EC021A00AE1A35 /* ShakingView.m in Sources */ = {isa = PBXBuildFile; fileRef = C36BB9D013EC021A00AE1A35 /* ShakingView.m */; };
-		C36BB9E713EC2F4B00AE1A35 /* Bobby.m4a in Resources */ = {isa = PBXBuildFile; fileRef = C36BB9E613EC2F4B00AE1A35 /* Bobby.m4a */; };
 		C36BB9E913EC301100AE1A35 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C36BB9E813EC301100AE1A35 /* AVFoundation.framework */; };
-		C36BB9F013EC32A600AE1A35 /* bobby_0.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C36BB9EA13EC32A600AE1A35 /* bobby_0.mp3 */; };
-		C36BB9F113EC32A600AE1A35 /* bobby_1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C36BB9EB13EC32A600AE1A35 /* bobby_1.mp3 */; };
-		C36BB9F213EC32A600AE1A35 /* bobby_2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C36BB9EC13EC32A600AE1A35 /* bobby_2.mp3 */; };
-		C36BB9F313EC32A600AE1A35 /* bobby_3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C36BB9ED13EC32A600AE1A35 /* bobby_3.mp3 */; };
-		C36BB9F413EC32A600AE1A35 /* bobby_4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C36BB9EE13EC32A600AE1A35 /* bobby_4.mp3 */; };
-		C36BB9F513EC32A600AE1A35 /* bobby_5.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C36BB9EF13EC32A600AE1A35 /* bobby_5.mp3 */; };
 		C36BB9F813EC54CB00AE1A35 /* Asymmetrical-Glue-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C36BB9F613EC54CB00AE1A35 /* Asymmetrical-Glue-icon.png */; };
 		C36BB9F913EC54CB00AE1A35 /* music_note.png in Resources */ = {isa = PBXBuildFile; fileRef = C36BB9F713EC54CB00AE1A35 /* music_note.png */; };
 		C36BBA0013EC613000AE1A35 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = C36BB9FE13EC613000AE1A35 /* Default.png */; };
@@ -51,14 +58,13 @@
 		32CA4F630368D1EE00C91783 /* Icons_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Icons_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Icons-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Icons-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		9F2632BF1263890E00DA83F1 /* ReadMe.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReadMe.txt; sourceTree = "<group>"; };
-		9F2632D412638B5C00DA83F1 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RootViewController.h; path = Shared/RootViewController.h; sourceTree = "<group>"; };
-		9F2632D512638B5C00DA83F1 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RootViewController.m; path = Shared/RootViewController.m; sourceTree = "<group>"; };
+		9F2632D412638B5C00DA83F1 /* LocalGlueViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocalGlueViewController.h; path = Shared/LocalGlueViewController.h; sourceTree = "<group>"; };
+		9F2632D512638B5C00DA83F1 /* LocalGlueViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocalGlueViewController.m; path = Shared/LocalGlueViewController.m; sourceTree = "<group>"; };
 		9F2632DB12638B8700DA83F1 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9F2BD5F21263DA8A0016473B /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		9FC6A490126CE71E008D73BA /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Shared/AppDelegate.h; sourceTree = "<group>"; };
 		9FC6A491126CE71E008D73BA /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Shared/AppDelegate.m; sourceTree = "<group>"; };
 		9FC6A52C126D05E2008D73BA /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
-		9FC6A52E126D05E2008D73BA /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RootViewController.xib; sourceTree = "<group>"; };
 		9FEDA33E125BC13100D0F59C /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
 		9FEDA33F125BC13100D0F59C /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50.png"; sourceTree = "<group>"; };
 		9FEDA340125BC13100D0F59C /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
@@ -69,17 +75,26 @@
 		C35C4B5413ECC17C0027A6ED /* GlueView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GlueView.m; path = Shared/GlueView.m; sourceTree = "<group>"; };
 		C35C4B5713ECD9E10027A6ED /* InfiniteScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InfiniteScrollView.h; path = Shared/InfiniteScrollView.h; sourceTree = "<group>"; };
 		C35C4B5813ECD9E10027A6ED /* InfiniteScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InfiniteScrollView.m; path = Shared/InfiniteScrollView.m; sourceTree = "<group>"; };
+		C367DBFC13ED469A00EA3138 /* TitleGlueViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TitleGlueViewController.xib; sourceTree = "<group>"; };
+		C367DC0313ED58BB00EA3138 /* refresh@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "refresh@2x.png"; sourceTree = "<group>"; };
+		C367DC0413ED58BB00EA3138 /* world@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "world@2x.png"; sourceTree = "<group>"; };
+		C367DC0713ED592B00EA3138 /* refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = refresh.png; sourceTree = "<group>"; };
+		C367DC0813ED592B00EA3138 /* world.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = world.png; sourceTree = "<group>"; };
+		C367DC0B13ED5A5200EA3138 /* bobby_0.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = bobby_0.mp3; path = Audio/bobby_0.mp3; sourceTree = "<group>"; };
+		C367DC0C13ED5A5200EA3138 /* bobby_1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = bobby_1.mp3; path = Audio/bobby_1.mp3; sourceTree = "<group>"; };
+		C367DC0D13ED5A5200EA3138 /* bobby_2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = bobby_2.mp3; path = Audio/bobby_2.mp3; sourceTree = "<group>"; };
+		C367DC0E13ED5A5200EA3138 /* bobby_3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = bobby_3.mp3; path = Audio/bobby_3.mp3; sourceTree = "<group>"; };
+		C367DC0F13ED5A5200EA3138 /* bobby_4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = bobby_4.mp3; path = Audio/bobby_4.mp3; sourceTree = "<group>"; };
+		C367DC1013ED5A5200EA3138 /* bobby_5.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = bobby_5.mp3; path = Audio/bobby_5.mp3; sourceTree = "<group>"; };
+		C367DC1113ED5A5200EA3138 /* Bobby.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = Bobby.m4a; path = Audio/Bobby.m4a; sourceTree = "<group>"; };
+		C367DC1913ED5B0400EA3138 /* GlueViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GlueViewController.h; path = Shared/GlueViewController.h; sourceTree = "<group>"; };
+		C367DC1A13ED5B0400EA3138 /* GlueViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GlueViewController.m; path = Shared/GlueViewController.m; sourceTree = "<group>"; };
+		C367DC1E13ED5B2F00EA3138 /* LocalGlueViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LocalGlueViewController.xib; path = Shared/LocalGlueViewController.xib; sourceTree = "<group>"; };
+		C367DC2113ED5B4D00EA3138 /* WorldGlueViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldGlueViewController.h; sourceTree = "<group>"; };
+		C367DC2213ED5B4D00EA3138 /* WorldGlueViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldGlueViewController.m; sourceTree = "<group>"; };
+		C367DC2313ED5B4D00EA3138 /* WorldGlueViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorldGlueViewController.xib; sourceTree = "<group>"; };
 		C36BB9C813EB58E400AE1A35 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
-		C36BB9CF13EC021A00AE1A35 /* ShakingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShakingView.h; path = Shared/ShakingView.h; sourceTree = "<group>"; };
-		C36BB9D013EC021A00AE1A35 /* ShakingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShakingView.m; path = Shared/ShakingView.m; sourceTree = "<group>"; };
-		C36BB9E613EC2F4B00AE1A35 /* Bobby.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bobby.m4a; sourceTree = "<group>"; };
 		C36BB9E813EC301100AE1A35 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		C36BB9EA13EC32A600AE1A35 /* bobby_0.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bobby_0.mp3; sourceTree = "<group>"; };
-		C36BB9EB13EC32A600AE1A35 /* bobby_1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bobby_1.mp3; sourceTree = "<group>"; };
-		C36BB9EC13EC32A600AE1A35 /* bobby_2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bobby_2.mp3; sourceTree = "<group>"; };
-		C36BB9ED13EC32A600AE1A35 /* bobby_3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bobby_3.mp3; sourceTree = "<group>"; };
-		C36BB9EE13EC32A600AE1A35 /* bobby_4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bobby_4.mp3; sourceTree = "<group>"; };
-		C36BB9EF13EC32A600AE1A35 /* bobby_5.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bobby_5.mp3; sourceTree = "<group>"; };
 		C36BB9F613EC54CB00AE1A35 /* Asymmetrical-Glue-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Asymmetrical-Glue-icon.png"; sourceTree = "<group>"; };
 		C36BB9F713EC54CB00AE1A35 /* music_note.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = music_note.png; sourceTree = "<group>"; };
 		C36BB9FE13EC613000AE1A35 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -117,14 +132,16 @@
 			children = (
 				9FC6A490126CE71E008D73BA /* AppDelegate.h */,
 				9FC6A491126CE71E008D73BA /* AppDelegate.m */,
-				9F2632D412638B5C00DA83F1 /* RootViewController.h */,
-				9F2632D512638B5C00DA83F1 /* RootViewController.m */,
-				C36BB9CF13EC021A00AE1A35 /* ShakingView.h */,
-				C36BB9D013EC021A00AE1A35 /* ShakingView.m */,
+				9F2632D412638B5C00DA83F1 /* LocalGlueViewController.h */,
+				9F2632D512638B5C00DA83F1 /* LocalGlueViewController.m */,
 				C35C4B5313ECC17C0027A6ED /* GlueView.h */,
 				C35C4B5413ECC17C0027A6ED /* GlueView.m */,
 				C35C4B5713ECD9E10027A6ED /* InfiniteScrollView.h */,
 				C35C4B5813ECD9E10027A6ED /* InfiniteScrollView.m */,
+				C367DC1913ED5B0400EA3138 /* GlueViewController.h */,
+				C367DC1A13ED5B0400EA3138 /* GlueViewController.m */,
+				C367DC2113ED5B4D00EA3138 /* WorldGlueViewController.h */,
+				C367DC2213ED5B4D00EA3138 /* WorldGlueViewController.m */,
 			);
 			name = Shared;
 			sourceTree = "<group>";
@@ -168,7 +185,9 @@
 			children = (
 				C36BB9D913EC2E2F00AE1A35 /* Audio */,
 				9FC6A52B126D05E2008D73BA /* MainWindow.xib */,
-				9FC6A52D126D05E2008D73BA /* RootViewController.xib */,
+				C367DC2313ED5B4D00EA3138 /* WorldGlueViewController.xib */,
+				C367DC1E13ED5B2F00EA3138 /* LocalGlueViewController.xib */,
+				C367DBFC13ED469A00EA3138 /* TitleGlueViewController.xib */,
 				8D1107310486CEB800E47090 /* Icons-Info.plist */,
 				9FEDA33D125BC13100D0F59C /* Images */,
 				9F2BD5F21263DA8A0016473B /* Settings.bundle */,
@@ -179,6 +198,10 @@
 		9FEDA33D125BC13100D0F59C /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				C367DC0713ED592B00EA3138 /* refresh.png */,
+				C367DC0813ED592B00EA3138 /* world.png */,
+				C367DC0313ED58BB00EA3138 /* refresh@2x.png */,
+				C367DC0413ED58BB00EA3138 /* world@2x.png */,
 				C36BBA0413EC6DE300AE1A35 /* wood@2x.png */,
 				C36BBA0213EC616200AE1A35 /* Icon@2x.png */,
 				C36BB9FE13EC613000AE1A35 /* Default.png */,
@@ -198,13 +221,13 @@
 		C36BB9D913EC2E2F00AE1A35 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
-				C36BB9EA13EC32A600AE1A35 /* bobby_0.mp3 */,
-				C36BB9EB13EC32A600AE1A35 /* bobby_1.mp3 */,
-				C36BB9EC13EC32A600AE1A35 /* bobby_2.mp3 */,
-				C36BB9ED13EC32A600AE1A35 /* bobby_3.mp3 */,
-				C36BB9EE13EC32A600AE1A35 /* bobby_4.mp3 */,
-				C36BB9EF13EC32A600AE1A35 /* bobby_5.mp3 */,
-				C36BB9E613EC2F4B00AE1A35 /* Bobby.m4a */,
+				C367DC0B13ED5A5200EA3138 /* bobby_0.mp3 */,
+				C367DC0C13ED5A5200EA3138 /* bobby_1.mp3 */,
+				C367DC0D13ED5A5200EA3138 /* bobby_2.mp3 */,
+				C367DC0E13ED5A5200EA3138 /* bobby_3.mp3 */,
+				C367DC0F13ED5A5200EA3138 /* bobby_4.mp3 */,
+				C367DC1013ED5A5200EA3138 /* bobby_5.mp3 */,
+				C367DC1113ED5A5200EA3138 /* Bobby.m4a */,
 			);
 			name = Audio;
 			sourceTree = "<group>";
@@ -271,20 +294,26 @@
 				9F2632C01263890E00DA83F1 /* ReadMe.txt in Resources */,
 				9F2BD5F31263DA8A0016473B /* Settings.bundle in Resources */,
 				9FC6A52F126D05E2008D73BA /* MainWindow.xib in Resources */,
-				9FC6A530126D05E2008D73BA /* RootViewController.xib in Resources */,
-				C36BB9E713EC2F4B00AE1A35 /* Bobby.m4a in Resources */,
-				C36BB9F013EC32A600AE1A35 /* bobby_0.mp3 in Resources */,
-				C36BB9F113EC32A600AE1A35 /* bobby_1.mp3 in Resources */,
-				C36BB9F213EC32A600AE1A35 /* bobby_2.mp3 in Resources */,
-				C36BB9F313EC32A600AE1A35 /* bobby_3.mp3 in Resources */,
-				C36BB9F413EC32A600AE1A35 /* bobby_4.mp3 in Resources */,
-				C36BB9F513EC32A600AE1A35 /* bobby_5.mp3 in Resources */,
 				C36BB9F813EC54CB00AE1A35 /* Asymmetrical-Glue-icon.png in Resources */,
 				C36BB9F913EC54CB00AE1A35 /* music_note.png in Resources */,
 				C36BBA0013EC613000AE1A35 /* Default.png in Resources */,
 				C36BBA0113EC613000AE1A35 /* Default@2x.png in Resources */,
 				C36BBA0313EC616200AE1A35 /* Icon@2x.png in Resources */,
 				C36BBA0513EC6DE300AE1A35 /* wood@2x.png in Resources */,
+				C367DBFE13ED469A00EA3138 /* TitleGlueViewController.xib in Resources */,
+				C367DC0513ED58BB00EA3138 /* refresh@2x.png in Resources */,
+				C367DC0613ED58BB00EA3138 /* world@2x.png in Resources */,
+				C367DC0913ED592B00EA3138 /* refresh.png in Resources */,
+				C367DC0A13ED592B00EA3138 /* world.png in Resources */,
+				C367DC1213ED5A5200EA3138 /* bobby_0.mp3 in Resources */,
+				C367DC1313ED5A5200EA3138 /* bobby_1.mp3 in Resources */,
+				C367DC1413ED5A5200EA3138 /* bobby_2.mp3 in Resources */,
+				C367DC1513ED5A5200EA3138 /* bobby_3.mp3 in Resources */,
+				C367DC1613ED5A5200EA3138 /* bobby_4.mp3 in Resources */,
+				C367DC1713ED5A5200EA3138 /* bobby_5.mp3 in Resources */,
+				C367DC1813ED5A5200EA3138 /* Bobby.m4a in Resources */,
+				C367DC2013ED5B2F00EA3138 /* LocalGlueViewController.xib in Resources */,
+				C367DC2513ED5B4D00EA3138 /* WorldGlueViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,12 +324,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9F2632D812638B5C00DA83F1 /* RootViewController.m in Sources */,
+				9F2632D812638B5C00DA83F1 /* LocalGlueViewController.m in Sources */,
 				9F2632DC12638B8700DA83F1 /* main.m in Sources */,
 				9FC6A492126CE71E008D73BA /* AppDelegate.m in Sources */,
-				C36BB9D113EC021A00AE1A35 /* ShakingView.m in Sources */,
 				C35C4B5513ECC17C0027A6ED /* GlueView.m in Sources */,
 				C35C4B5913ECD9E10027A6ED /* InfiniteScrollView.m in Sources */,
+				C367DC1B13ED5B0400EA3138 /* GlueViewController.m in Sources */,
+				C367DC2413ED5B4D00EA3138 /* WorldGlueViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,14 +343,6 @@
 				9FC6A52C126D05E2008D73BA /* en */,
 			);
 			name = MainWindow.xib;
-			sourceTree = "<group>";
-		};
-		9FC6A52D126D05E2008D73BA /* RootViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9FC6A52E126D05E2008D73BA /* en */,
-			);
-			name = RootViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
