@@ -283,7 +283,7 @@
 		<string>DVTIdentifier</string>
 		<string>DVTViewMagnitude</string>
 		<string></string>
-		<real>464</real>
+		<real>474</real>
 		<dict>
 			<key>$classes</key>
 			<array>
@@ -468,7 +468,7 @@
 		<string>IDESCMStatusFilteringEnabled</string>
 		<string>IDESelectedObjects</string>
 		<string>IDEExpandedItemsSet</string>
-		<string>{{0, 0}, {259, 644}}</string>
+		<string>{{0, 0}, {259, 654}}</string>
 		<false/>
 		<dict>
 			<key>$class</key>
@@ -1393,10 +1393,10 @@
 		<string>PrimaryDocumentVisibleCharacterRange</string>
 		<string>HideAllIssues</string>
 		<string>PrimaryDocumentSelectedCharacterRange</string>
-		<real>334328644.553882</real>
-		<string>{588, 1964}</string>
-		<string>{1929, 0}</string>
-		<string>-init</string>
+		<real>334334784.207012</real>
+		<string>{1922, 1777}</string>
+		<string>{2473, 0}</string>
+		<string>-scrollViewDidScroll:</string>
 		<string>Xcode.IDEKit.EditorDocument.SourceCode</string>
 		<dict>
 			<key>$class</key>
@@ -1439,7 +1439,7 @@
 				</dict>
 			</array>
 		</dict>
-		<string>{{0, 0}, {760, 551}}</string>
+		<string>{{0, 0}, {760, 561}}</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -1822,7 +1822,7 @@
 			</array>
 		</dict>
 		<string>IDEEditor</string>
-		<real>573</real>
+		<real>583</real>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -2057,7 +2057,7 @@
 			<key>$classname</key>
 			<string>IDEWorkspaceTabControllerLayoutTree</string>
 		</dict>
-		<string>{{0, 14}, {1280, 764}}</string>
+		<string>{{0, 4}, {1280, 774}}</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -5541,9 +5541,9 @@
 				</dict>
 			</array>
 		</dict>
-		<real>334328644.55309403</real>
-		<string>{588, 1964}</string>
-		<string>{1929, 0}</string>
+		<real>334334784.20614201</real>
+		<string>{1922, 1777}</string>
+		<string>{2473, 0}</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -7212,7 +7212,7 @@
 				</dict>
 			</array>
 		</dict>
-		<integer>7</integer>
+		<integer>6</integer>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -8982,7 +8982,7 @@
 				<integer>734</integer>
 			</dict>
 			<key>NS.time</key>
-			<real>334328610.5194</real>
+			<real>334334692.97203398</real>
 		</dict>
 		<dict>
 			<key>$classes</key>
@@ -8993,7 +8993,7 @@
 			<key>$classname</key>
 			<string>NSDate</string>
 		</dict>
-		<string>Today at 15:03</string>
+		<string>Today at 16:44</string>
 		<integer>234</integer>
 		<string>SongGlue</string>
 		<dict>
@@ -9223,7 +9223,7 @@
 				<integer>755</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/dmrschmidt/Sites/iOS/SongGlue/Shared/GlueView.h</string>
+		<string>file://localhost/Users/dmrschmidt/Sites/iOS/SongGlue/Shared/LocalGlueViewController.xib</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -9241,7 +9241,7 @@
 				<integer>757</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/dmrschmidt/Sites/iOS/SongGlue/main.m</string>
+		<string>file://localhost/Users/dmrschmidt/Sites/iOS/SongGlue/WorldGlueViewController.xib</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -9259,7 +9259,7 @@
 				<integer>759</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/dmrschmidt/Sites/iOS/SongGlue/Shared/GlueViewController.m</string>
+		<string>file://localhost/Users/dmrschmidt/Sites/iOS/SongGlue/Shared/GlueView.h</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -9277,7 +9277,7 @@
 				<integer>761</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/dmrschmidt/Sites/iOS/SongGlue/Shared/LocalGlueViewController.h</string>
+		<string>file://localhost/Users/dmrschmidt/Sites/iOS/SongGlue/main.m</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -9295,7 +9295,7 @@
 				<integer>763</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/dmrschmidt/Sites/iOS/SongGlue/Shared/LocalGlueViewController.m</string>
+		<string>file://localhost/Users/dmrschmidt/Sites/iOS/SongGlue/Shared/GlueViewController.m</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -9313,7 +9313,7 @@
 				<integer>765</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/dmrschmidt/Sites/iOS/SongGlue/Shared/InfiniteScrollView.m</string>
+		<string>file://localhost/Users/dmrschmidt/Sites/iOS/SongGlue/Shared/LocalGlueViewController.h</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -9331,7 +9331,7 @@
 				<integer>767</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/dmrschmidt/Sites/iOS/SongGlue/WorldGlueViewController.xib</string>
+		<string>file://localhost/Users/dmrschmidt/Sites/iOS/SongGlue/Shared/LocalGlueViewController.m</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -9349,7 +9349,7 @@
 				<integer>769</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/dmrschmidt/Sites/iOS/SongGlue/Shared/LocalGlueViewController.xib</string>
+		<string>file://localhost/Users/dmrschmidt/Sites/iOS/SongGlue/Shared/InfiniteScrollView.m</string>
 		<dict>
 			<key>$class</key>
 			<dict>

@@ -28,6 +28,8 @@
         self.label.numberOfLines = 10;
         self.label.shadowColor = [UIColor darkTextColor];
         self.label.shadowOffset = CGSizeMake(0, 1);
+        self.label.adjustsFontSizeToFitWidth = YES;
+        self.label.minimumFontSize = 7;
         self.label.frame = CGRectMake(10, 100 + contentOffsetY, 300, 200);
         
         // set up the scrollView
@@ -49,6 +51,30 @@
         [self.scrollView addSubview:self.label];
     }
     return self;
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    // TODO: make all these thresholds relative
+    NSLog(@"offset: %@", [NSNumber numberWithFloat:scrollView.contentOffset.y]);
+    // make the content shrink, so it appears as if it would drop into the
+    // "Favorites" tab bar icon
+    if(scrollView.contentOffset.y < 300) {
+        CGPoint oldCenter = self.label.center;
+        CGRect oldFrame = self.label.frame;
+        CGRect newFrame = CGRectMake(
+                                     oldFrame.origin.x,
+                                     oldFrame.origin.y,
+                                     scrollView.contentOffset.y,
+                                     200 * scrollView.contentOffset.y / 300);
+        self.label.frame = newFrame;
+        self.label.center = oldCenter;
+    } else if(scrollView.contentOffset.y >= 360) {
+        // fade the text out when flicking to top
+        CGFloat newAlpha = 1.0;
+        newAlpha = 1.f - (scrollView.contentOffset.y - 360) / 360;
+        newAlpha = MAX(MIN(1, newAlpha), 0);
+        self.label.alpha = newAlpha;
+    }
 }
 
 - (void)configureAtIndex:(NSUInteger)index withTitle:(NSString *)title {
