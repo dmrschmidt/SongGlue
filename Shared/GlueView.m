@@ -40,5 +40,26 @@
     self.label.text = newTitle;
 }
 
+- (void)shake {
+    CGPoint center = self.label.center;
+    [UIView animateWithDuration:0.1
+                     animations:^{self.label.center = CGPointMake(center.x - 20, center.y);}
+                     completion:^(BOOL finished){
+                         [UIView animateWithDuration:0.1
+                                          animations:^{self.label.center =
+                                              CGPointMake(center.x + 20, center.y);}
+                                          completion:^(BOOL finished){
+                                              [UIView animateWithDuration:0.1
+                                                               animations:^{self.label.center = CGPointMake(center.x - 20, center.y);}
+                                                               completion:^(BOOL finished){
+                                                                   [UIView animateWithDuration:0.1
+                                                                                    animations:^{self.label.center = CGPointMake(160.f, center.y);}
+                                                                                    completion:^(BOOL finished){}];
+                                                               }];
+                                          }];
+                     }];
+    
+}
+
 
 @end

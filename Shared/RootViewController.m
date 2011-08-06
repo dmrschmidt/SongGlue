@@ -44,6 +44,7 @@
     self.scrollView = [[InfiniteScrollView alloc] initWithFrame:frame];
     self.scrollView.delegate = self;
     self.scrollView.pagingEnabled = YES;
+    self.scrollView.showsHorizontalScrollIndicator = NO;
     self.scrollView.contentSize = CGSizeMake(frame.size.width * [self glueCount], frame.size.height);
     [self.view addSubview:self.scrollView];
     
@@ -133,27 +134,6 @@
     self.audioSamples = [NSArray arrayWithArray:samples];
 }
 
-- (void)shakeIntro {
-    CGPoint center = self.labelView.center;
-    [UIView animateWithDuration:0.1
-                     animations:^{self.labelView.center = CGPointMake(center.x - 20, center.y);}
-                     completion:^(BOOL finished){
-                         [UIView animateWithDuration:0.1
-                                          animations:^{self.labelView.center =
-                                              CGPointMake(center.x + 20, center.y);}
-                                          completion:^(BOOL finished){
-                                              [UIView animateWithDuration:0.1
-                                                               animations:^{self.labelView.center = CGPointMake(center.x - 20, center.y);}
-                                                               completion:^(BOOL finished){
-                                                                   [UIView animateWithDuration:0.1
-                                                                                    animations:^{self.labelView.center = CGPointMake(160.f, center.y);}
-                                                                                    completion:^(BOOL finished){}];
-                                                               }];
-                                          }];
-                     }];
-
-}
-
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
@@ -162,31 +142,14 @@
 
 
 - (IBAction)updateTitle:(id)sender {
-    [self shakeIntro];
-    NSMutableString *shuffledText = [[NSMutableString alloc] init];
-    
-    NSError *error = NULL;
-    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"\\([^)]*\\)"
-                                                                           options:0
-                                                                             error:&error];
-    
-    for(NSUInteger i = 0; i < 3; i++) {
-        NSUInteger songItemIndex = arc4random() % [[self itemsFromGenericQuery] count];
-        MPMediaItem *song = [[self itemsFromGenericQuery] objectAtIndex:songItemIndex];
-        NSString *songTitle = [NSString stringWithString:[song valueForProperty: MPMediaItemPropertyTitle]];
-        
-        // remove brackets
-        NSString *modifiedString = [regex stringByReplacingMatchesInString:songTitle
-                                                                   options:0
-                                                                     range:NSMakeRange(0, [songTitle length])
-                                                              withTemplate:@""];
-        
-        [shuffledText appendString:modifiedString];
-        if(i < 2) [shuffledText appendString:@"\n"];
+    CGRect visibleBounds = self.scrollView.bounds;
+    int neededPageIndex = floorf(CGRectGetMinX(visibleBounds) / CGRectGetWidth(visibleBounds));
+    for(GlueView *pageGlueView in self.visiblePages) {
+        if(pageGlueView.index == neededPageIndex) {
+            [pageGlueView configureAtIndex:neededPageIndex withTitle:[self randomTitle]];
+            [pageGlueView shake];
+        }
     }
-    
-    self.labelView.text = shuffledText;
-    [shuffledText release];
 }
 
 - (NSString *)randomTitle {

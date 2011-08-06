@@ -10,13 +10,11 @@
 
 @implementation InfiniteScrollView
 
-- (id)init
-{
+- (id)init {
     self = [super init];
     if (self) {
-//        self.contentSize = CGSizeMake(5000, 500);
+        
     }
-    
     return self;
 }
 

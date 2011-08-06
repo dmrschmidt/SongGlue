@@ -15,6 +15,7 @@
 
 - (void)configureAtIndex:(NSUInteger)index withTitle:(NSString *)title;
 - (void)setTitle:(NSString *)newTitle;
+- (void)shake;
 
 @property(nonatomic, retain) UILabel *label;
 @property(assign) NSUInteger index;
