@@ -20,6 +20,11 @@
 /*
  *
  */
+- (NSString *)gluePartForIndex:(NSUInteger)index;
+
+/*
+ *
+ */
 - (NSString *)gluedString;
 
 @property(nonatomic, retain) NSArray *mediaItems;

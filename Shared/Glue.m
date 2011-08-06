@@ -17,31 +17,32 @@
     self = [super init];
     if (self) {
         self.mediaItems = mediaItems;
-        
-
-        
     }
-    
     return self;
 }
 
-- (NSString *)gluedString {
-    NSMutableString *shuffledText = [[NSMutableString alloc] init];
+- (NSString *)gluePartForIndex:(NSUInteger)index {
     NSError *error = NULL;
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"\\([^)]*\\)"
                                                                            options:0
                                                                              error:&error];
-    for(MPMediaItem *mediaItem in self.mediaItems) {
-        NSString *songTitle = [NSString stringWithString:[mediaItem valueForProperty: MPMediaItemPropertyTitle]];
-        
-        // remove brackets
-        NSString *modifiedString = [regex stringByReplacingMatchesInString:songTitle
-                                                                   options:0
-                                                                     range:NSMakeRange(0, [songTitle length])
-                                                              withTemplate:@""];
-        
-        [shuffledText appendString:modifiedString];
-        [shuffledText appendString:@"\n"];
+    MPMediaItem *mediaItem = [self.mediaItems objectAtIndex:index];
+    NSString *songTitle = [NSString stringWithString:[mediaItem valueForProperty: MPMediaItemPropertyTitle]];
+    
+    // remove brackets
+    NSString *modifiedString = [regex stringByReplacingMatchesInString:songTitle
+                                                               options:0
+                                                                 range:NSMakeRange(0, [songTitle length])
+                                                          withTemplate:@""];
+    return modifiedString;
+}
+
+- (NSString *)gluedString {
+    NSMutableString *shuffledText = [[NSMutableString alloc] init];
+    
+    for(int index = 0; index < [self.mediaItems count]; index++) {
+        [shuffledText appendString:[self gluePartForIndex:index]];
+        [shuffledText appendString:@" "];
     }
     return [shuffledText autorelease];
 }
