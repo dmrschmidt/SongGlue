@@ -77,6 +77,10 @@
     }
 }
 
+- (void)configureAtIndex:(NSUInteger)index withGlue:(Glue *)glue {
+    [self configureAtIndex:index withTitle:[glue gluedString]];
+}
+
 - (void)configureAtIndex:(NSUInteger)index withTitle:(NSString *)title {
     self.frame = CGRectMake([[UIScreen mainScreen] bounds].size.width * index,
                             0,

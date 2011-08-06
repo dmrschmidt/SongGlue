@@ -22,6 +22,10 @@ static GlueGenerator* sharedInstance = nil;
     return sharedInstance;
 }
 
++ (Glue *)randomGlue {
+    return [[GlueGenerator sharedInstance] randomGlue];
+}
+
 - (id)init {
     self = [super init];
     if (self) {

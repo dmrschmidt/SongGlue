@@ -22,6 +22,11 @@
 + (GlueGenerator *)sharedInstance;
 
 /*
+ * Returns a random Glue instance.
+ */
++ (Glue *)randomGlue;
+
+/*
  * Returns a random title from the iPod.
  */
 - (Glue *)randomGlue;

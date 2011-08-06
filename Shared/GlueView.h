@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Glue.h"
 
 @interface GlueView : UIView <UIScrollViewDelegate> {
     UILabel *_label;
@@ -14,6 +15,7 @@
     NSUInteger _index;
 }
 
+- (void)configureAtIndex:(NSUInteger)index withGlue:(Glue *)glue;
 - (void)configureAtIndex:(NSUInteger)index withTitle:(NSString *)title;
 - (void)setTitle:(NSString *)newTitle;
 - (void)shake;

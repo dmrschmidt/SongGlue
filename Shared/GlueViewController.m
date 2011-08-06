@@ -84,8 +84,7 @@
     int neededPageIndex = floorf(CGRectGetMinX(visibleBounds) / CGRectGetWidth(visibleBounds));
     for(GlueView *pageGlueView in self.visiblePages) {
         if(pageGlueView.index == neededPageIndex) {
-            [pageGlueView configureAtIndex:neededPageIndex withTitle:
-                [[[GlueGenerator sharedInstance] randomGlue] gluedString]];
+            [pageGlueView configureAtIndex:neededPageIndex withGlue:[GlueGenerator randomGlue]];
             [pageGlueView shake];
         }
     }
@@ -117,8 +116,7 @@
             if(glueView == nil) {
                 glueView = [[[GlueView alloc] init] autorelease];
             }
-            [glueView configureAtIndex:index withTitle:
-                [[[GlueGenerator sharedInstance] randomGlue] gluedString]];
+            [glueView configureAtIndex:index withGlue:[GlueGenerator randomGlue]];
             [self.scrollView addSubview:glueView];
             [self.visiblePages addObject:glueView];
         }
@@ -205,9 +203,6 @@
     
     _visiblePages = [[NSMutableSet alloc] init];
     _recycledPages = [[NSMutableSet alloc] init];
-    
-    // get the GlueGenerator
-//    [self setItemsFromGenericQuery:[[MPMediaQuery songsQuery] items]];
     
     [self initScrollView];
     [self initAccelerometer];

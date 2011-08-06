@@ -1393,9 +1393,9 @@
 		<string>PrimaryDocumentVisibleCharacterRange</string>
 		<string>HideAllIssues</string>
 		<string>PrimaryDocumentSelectedCharacterRange</string>
-		<real>334336182.02642602</real>
-		<string>{3171, 1600}</string>
-		<string>{4003, 10}</string>
+		<real>334336498.01186597</real>
+		<string>{3075, 1687}</string>
+		<string>{3951, 0}</string>
 		<string>-updateTitle:</string>
 		<string>Xcode.IDEKit.EditorDocument.SourceCode</string>
 		<dict>
@@ -2153,15 +2153,15 @@
 				</dict>
 				<dict>
 					<key>CF$UID</key>
+					<integer>771</integer>
+				</dict>
+				<dict>
+					<key>CF$UID</key>
 					<integer>772</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>773</integer>
-				</dict>
-				<dict>
-					<key>CF$UID</key>
-					<integer>785</integer>
+					<integer>784</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
@@ -5363,9 +5363,9 @@
 				</dict>
 			</array>
 		</dict>
-		<real>334336182.025509</real>
-		<string>{3171, 1600}</string>
-		<string>{4003, 10}</string>
+		<real>334336498.01104999</real>
+		<string>{3075, 1687}</string>
+		<string>{3951, 0}</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -5411,9 +5411,9 @@
 				</dict>
 			</array>
 		</dict>
-		<real>334336071.52366</real>
-		<string>{79, 1060}</string>
-		<string>{893, 11}</string>
+		<real>334336452.74062401</real>
+		<string>{79, 1100}</string>
+		<string>{494, 0}</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -5506,9 +5506,9 @@
 				</dict>
 			</array>
 		</dict>
-		<real>334336075.66606402</real>
-		<string>{0, 529}</string>
-		<string>{176, 35}</string>
+		<real>334336450.96369398</real>
+		<string>{0, 594}</string>
+		<string>{495, 20}</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -5821,9 +5821,9 @@
 				</dict>
 			</array>
 		</dict>
-		<real>334334858.80638897</real>
-		<string>{1922, 1777}</string>
-		<string>{2473, 0}</string>
+		<real>334336449.60986203</real>
+		<string>{2367, 1629}</string>
+		<string>{3398, 0}</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -6181,9 +6181,9 @@
 				</dict>
 			</array>
 		</dict>
-		<real>334328592.95105302</real>
-		<string>{0, 563}</string>
-		<string>{213, 0}</string>
+		<real>334336412.80370098</real>
+		<string>{0, 646}</string>
+		<string>{376, 0}</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -9192,7 +9192,7 @@
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>771</integer>
+					<integer>751</integer>
 				</dict>
 			</array>
 		</dict>
@@ -9456,7 +9456,7 @@
 				<integer>768</integer>
 			</dict>
 			<key>NS.time</key>
-			<real>334336177.825463</real>
+			<real>334336496.60190302</real>
 		</dict>
 		<dict>
 			<key>$classes</key>
@@ -9467,9 +9467,8 @@
 			<key>$classname</key>
 			<string>NSDate</string>
 		</dict>
-		<string>Today at 17:09</string>
+		<string>Today at 17:14</string>
 		<integer>234</integer>
-		<string>SongGlue</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -9494,22 +9493,22 @@
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>774</integer>
+					<integer>773</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>775</integer>
+					<integer>774</integer>
 				</dict>
 			</array>
 			<key>NS.objects</key>
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>777</integer>
+					<integer>776</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>782</integer>
+					<integer>781</integer>
 				</dict>
 			</array>
 		</dict>
@@ -9544,7 +9543,7 @@
 			<key>NS.relative</key>
 			<dict>
 				<key>CF$UID</key>
-				<integer>776</integer>
+				<integer>775</integer>
 			</dict>
 		</dict>
 		<string>file://localhost/Users/dmrschmidt/Sites/iOS/SongGlue/en.lproj/RootViewController.xib</string>
@@ -9558,22 +9557,22 @@
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>778</integer>
+					<integer>777</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>779</integer>
+					<integer>778</integer>
 				</dict>
 			</array>
 			<key>NS.objects</key>
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>780</integer>
+					<integer>779</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>781</integer>
+					<integer>780</integer>
 				</dict>
 			</array>
 		</dict>
@@ -9591,22 +9590,22 @@
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>778</integer>
+					<integer>777</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>779</integer>
+					<integer>778</integer>
 				</dict>
 			</array>
 			<key>NS.objects</key>
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>783</integer>
+					<integer>782</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>784</integer>
+					<integer>783</integer>
 				</dict>
 			</array>
 		</dict>
@@ -9622,43 +9621,43 @@
 			<array>
 				<dict>
 					<key>CF$UID</key>
-					<integer>786</integer>
+					<integer>785</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>788</integer>
+					<integer>787</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>790</integer>
+					<integer>789</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>792</integer>
+					<integer>791</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>794</integer>
+					<integer>793</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>796</integer>
+					<integer>795</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>798</integer>
+					<integer>797</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>800</integer>
+					<integer>799</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>802</integer>
+					<integer>801</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>804</integer>
+					<integer>803</integer>
 				</dict>
 			</array>
 		</dict>
@@ -9676,7 +9675,7 @@
 			<key>NS.relative</key>
 			<dict>
 				<key>CF$UID</key>
-				<integer>787</integer>
+				<integer>786</integer>
 			</dict>
 		</dict>
 		<string>file://localhost/Users/dmrschmidt/Sites/iOS/SongGlue/Shared/GlueViewController.m</string>
@@ -9694,61 +9693,7 @@
 			<key>NS.relative</key>
 			<dict>
 				<key>CF$UID</key>
-				<integer>789</integer>
-			</dict>
-		</dict>
-		<string>file://localhost/Users/dmrschmidt/Sites/iOS/SongGlue/Shared/Glue.m</string>
-		<dict>
-			<key>$class</key>
-			<dict>
-				<key>CF$UID</key>
-				<integer>149</integer>
-			</dict>
-			<key>NS.base</key>
-			<dict>
-				<key>CF$UID</key>
-				<integer>0</integer>
-			</dict>
-			<key>NS.relative</key>
-			<dict>
-				<key>CF$UID</key>
-				<integer>791</integer>
-			</dict>
-		</dict>
-		<string>file://localhost/Users/dmrschmidt/Sites/iOS/SongGlue/Shared/Glue.h</string>
-		<dict>
-			<key>$class</key>
-			<dict>
-				<key>CF$UID</key>
-				<integer>149</integer>
-			</dict>
-			<key>NS.base</key>
-			<dict>
-				<key>CF$UID</key>
-				<integer>0</integer>
-			</dict>
-			<key>NS.relative</key>
-			<dict>
-				<key>CF$UID</key>
-				<integer>793</integer>
-			</dict>
-		</dict>
-		<string>file://localhost/Users/dmrschmidt/Sites/iOS/SongGlue/Shared/GlueGenerator.h</string>
-		<dict>
-			<key>$class</key>
-			<dict>
-				<key>CF$UID</key>
-				<integer>149</integer>
-			</dict>
-			<key>NS.base</key>
-			<dict>
-				<key>CF$UID</key>
-				<integer>0</integer>
-			</dict>
-			<key>NS.relative</key>
-			<dict>
-				<key>CF$UID</key>
-				<integer>795</integer>
+				<integer>788</integer>
 			</dict>
 		</dict>
 		<string>file://localhost/Users/dmrschmidt/Sites/iOS/SongGlue/Shared/GlueGenerator.m</string>
@@ -9766,10 +9711,10 @@
 			<key>NS.relative</key>
 			<dict>
 				<key>CF$UID</key>
-				<integer>797</integer>
+				<integer>790</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/dmrschmidt/Sites/iOS/SongGlue/Shared/GlueViewController.h</string>
+		<string>file://localhost/Users/dmrschmidt/Sites/iOS/SongGlue/Shared/GlueGenerator.h</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -9784,7 +9729,7 @@
 			<key>NS.relative</key>
 			<dict>
 				<key>CF$UID</key>
-				<integer>799</integer>
+				<integer>792</integer>
 			</dict>
 		</dict>
 		<string>file://localhost/Users/dmrschmidt/Sites/iOS/SongGlue/Shared/GlueView.m</string>
@@ -9802,7 +9747,79 @@
 			<key>NS.relative</key>
 			<dict>
 				<key>CF$UID</key>
-				<integer>801</integer>
+				<integer>794</integer>
+			</dict>
+		</dict>
+		<string>file://localhost/Users/dmrschmidt/Sites/iOS/SongGlue/Shared/GlueView.h</string>
+		<dict>
+			<key>$class</key>
+			<dict>
+				<key>CF$UID</key>
+				<integer>149</integer>
+			</dict>
+			<key>NS.base</key>
+			<dict>
+				<key>CF$UID</key>
+				<integer>0</integer>
+			</dict>
+			<key>NS.relative</key>
+			<dict>
+				<key>CF$UID</key>
+				<integer>796</integer>
+			</dict>
+		</dict>
+		<string>file://localhost/Users/dmrschmidt/Sites/iOS/SongGlue/Shared/Glue.m</string>
+		<dict>
+			<key>$class</key>
+			<dict>
+				<key>CF$UID</key>
+				<integer>149</integer>
+			</dict>
+			<key>NS.base</key>
+			<dict>
+				<key>CF$UID</key>
+				<integer>0</integer>
+			</dict>
+			<key>NS.relative</key>
+			<dict>
+				<key>CF$UID</key>
+				<integer>798</integer>
+			</dict>
+		</dict>
+		<string>file://localhost/Users/dmrschmidt/Sites/iOS/SongGlue/Shared/Glue.h</string>
+		<dict>
+			<key>$class</key>
+			<dict>
+				<key>CF$UID</key>
+				<integer>149</integer>
+			</dict>
+			<key>NS.base</key>
+			<dict>
+				<key>CF$UID</key>
+				<integer>0</integer>
+			</dict>
+			<key>NS.relative</key>
+			<dict>
+				<key>CF$UID</key>
+				<integer>800</integer>
+			</dict>
+		</dict>
+		<string>file://localhost/Users/dmrschmidt/Sites/iOS/SongGlue/Shared/GlueViewController.h</string>
+		<dict>
+			<key>$class</key>
+			<dict>
+				<key>CF$UID</key>
+				<integer>149</integer>
+			</dict>
+			<key>NS.base</key>
+			<dict>
+				<key>CF$UID</key>
+				<integer>0</integer>
+			</dict>
+			<key>NS.relative</key>
+			<dict>
+				<key>CF$UID</key>
+				<integer>802</integer>
 			</dict>
 		</dict>
 		<string>file://localhost/Users/dmrschmidt/Sites/iOS/SongGlue/Shared/LocalGlueViewController.xib</string>
@@ -9820,28 +9837,10 @@
 			<key>NS.relative</key>
 			<dict>
 				<key>CF$UID</key>
-				<integer>803</integer>
+				<integer>804</integer>
 			</dict>
 		</dict>
 		<string>file://localhost/Users/dmrschmidt/Sites/iOS/SongGlue/WorldGlueViewController.xib</string>
-		<dict>
-			<key>$class</key>
-			<dict>
-				<key>CF$UID</key>
-				<integer>149</integer>
-			</dict>
-			<key>NS.base</key>
-			<dict>
-				<key>CF$UID</key>
-				<integer>0</integer>
-			</dict>
-			<key>NS.relative</key>
-			<dict>
-				<key>CF$UID</key>
-				<integer>805</integer>
-			</dict>
-		</dict>
-		<string>file://localhost/Users/dmrschmidt/Sites/iOS/SongGlue/Shared/GlueView.h</string>
 	</array>
 	<key>$top</key>
 	<dict>
