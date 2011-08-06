@@ -37,7 +37,6 @@
 - (BOOL)isDisplayingPageForIndex:(NSUInteger)index;
 - (void)initScrollView;
 - (void)tilePages;
-- (void)shakeIntro;
 - (void)initAccelerometer;
 - (IBAction)updateTitle:(id)sender;
 - (void)playAudio;
