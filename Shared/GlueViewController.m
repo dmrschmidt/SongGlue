@@ -20,6 +20,9 @@
 @synthesize visiblePages = _visiblePages;
 @synthesize recycledPages = _recycledPages;
 
+// see UIScrollViewDelegate delegate methods
+static BOOL scrolled = NO;
+
 #pragma mark -
 #pragma mark - Hardware (Audio, Accelerometer) stuff
 
@@ -156,28 +159,29 @@
 
 - (NSUInteger)glueCount {
     // for now just static
-    return 11;
+    return 3;
 }
 
 #pragma mark -
 #pragma mark - UIScrollViewDelegate delegate methods
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    [self tilePages];
+    // only tile the pages again, if scrollViewDidEndDecelerating hasn't been invoked
+    // directly before this
+    if(!scrolled) [self tilePages];
+    scrolled = NO;
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)sender {
-    NSLog(@"relocating");
-    // The key is repositioning without animation
-    if (self.scrollView.contentOffset.x == 0) {
-        // user is scrolling to the left from image 1 to image 10.
-        // reposition offset to show image 10 that is on the right in the scroll view
-        [self.scrollView scrollRectToVisible:CGRectMake(3520,0,320,480) animated:NO];
-    }
-    else if (self.scrollView.contentOffset.x == 3840) {
-        // user is scrolling to the right from image 10 to image 1.
-        // reposition offset to show image 1 that is on the left in the scroll view
-        [self.scrollView scrollRectToVisible:CGRectMake(320,0,320,480) animated:NO];
+    // setting this causes scrollViewDidScroll to NOT execute tiling one time
+    scrolled = YES;
+    
+    GlueView *toMove = [self currentGlueView];
+    // repositioning without animation
+    if (self.scrollView.contentOffset.x == 0 || self.scrollView.contentOffset.x == 640) {
+        self.scrollView.contentOffset = CGPointMake(320, 0);
+        toMove.frame = CGRectMake(320, 0, toMove.bounds.size.width, toMove.bounds.size.height);
+        toMove.index = 1;
     }
 }
 
@@ -185,13 +189,8 @@
 #pragma mark - Initialization
 
 - (void)initScrollView {
-    CGRect frame = self.view.bounds;
-    
-    // just temporarily to see the scroll thingy
-    frame.size.height = 400;
-    self.scrollView.showsHorizontalScrollIndicator = YES;
-    
-    self.scrollView = [[InfiniteScrollView alloc] initWithFrame:frame];
+    CGRect frame = self.view.bounds;    
+    self.scrollView = [[UIScrollView alloc] initWithFrame:frame];
     self.scrollView.delegate = self;
     self.scrollView.pagingEnabled = YES;
     self.scrollView.contentSize = CGSizeMake(frame.size.width * [self glueCount], frame.size.height);

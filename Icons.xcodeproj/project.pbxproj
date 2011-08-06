@@ -23,7 +23,6 @@
 		9FEDA349125BC13100D0F59C /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FEDA342125BC13100D0F59C /* Icon.png */; };
 		9FEDA34B125BC13100D0F59C /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 9FEDA344125BC13100D0F59C /* iTunesArtwork */; };
 		C35C4B5513ECC17C0027A6ED /* GlueView.m in Sources */ = {isa = PBXBuildFile; fileRef = C35C4B5413ECC17C0027A6ED /* GlueView.m */; };
-		C35C4B5913ECD9E10027A6ED /* InfiniteScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = C35C4B5813ECD9E10027A6ED /* InfiniteScrollView.m */; };
 		C367DC0513ED58BB00EA3138 /* refresh@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C367DC0313ED58BB00EA3138 /* refresh@2x.png */; };
 		C367DC0613ED58BB00EA3138 /* world@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C367DC0413ED58BB00EA3138 /* world@2x.png */; };
 		C367DC0913ED592B00EA3138 /* refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = C367DC0713ED592B00EA3138 /* refresh.png */; };
@@ -74,8 +73,6 @@
 		9FEDA344125BC13100D0F59C /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
 		C35C4B5313ECC17C0027A6ED /* GlueView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GlueView.h; path = Shared/GlueView.h; sourceTree = "<group>"; };
 		C35C4B5413ECC17C0027A6ED /* GlueView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GlueView.m; path = Shared/GlueView.m; sourceTree = "<group>"; };
-		C35C4B5713ECD9E10027A6ED /* InfiniteScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InfiniteScrollView.h; path = Shared/InfiniteScrollView.h; sourceTree = "<group>"; };
-		C35C4B5813ECD9E10027A6ED /* InfiniteScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InfiniteScrollView.m; path = Shared/InfiniteScrollView.m; sourceTree = "<group>"; };
 		C367DC0313ED58BB00EA3138 /* refresh@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "refresh@2x.png"; sourceTree = "<group>"; };
 		C367DC0413ED58BB00EA3138 /* world@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "world@2x.png"; sourceTree = "<group>"; };
 		C367DC0713ED592B00EA3138 /* refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = refresh.png; sourceTree = "<group>"; };
@@ -138,8 +135,6 @@
 				9FC6A491126CE71E008D73BA /* AppDelegate.m */,
 				C35C4B5313ECC17C0027A6ED /* GlueView.h */,
 				C35C4B5413ECC17C0027A6ED /* GlueView.m */,
-				C35C4B5713ECD9E10027A6ED /* InfiniteScrollView.h */,
-				C35C4B5813ECD9E10027A6ED /* InfiniteScrollView.m */,
 				C367DC1913ED5B0400EA3138 /* GlueViewController.h */,
 				C367DC1A13ED5B0400EA3138 /* GlueViewController.m */,
 				9F2632D412638B5C00DA83F1 /* LocalGlueViewController.h */,
@@ -334,7 +329,6 @@
 				9F2632DC12638B8700DA83F1 /* main.m in Sources */,
 				9FC6A492126CE71E008D73BA /* AppDelegate.m in Sources */,
 				C35C4B5513ECC17C0027A6ED /* GlueView.m in Sources */,
-				C35C4B5913ECD9E10027A6ED /* InfiniteScrollView.m in Sources */,
 				C367DC1B13ED5B0400EA3138 /* GlueViewController.m in Sources */,
 				C367DC2413ED5B4D00EA3138 /* WorldGlueViewController.m in Sources */,
 				C3EB246613ED8B8A00276C1D /* GlueGenerator.m in Sources */,

@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 #import "GlueView.h"
-#import "InfiniteScrollView.h"
 
 @interface GlueViewController : UIViewController <UIAccelerometerDelegate, UIScrollViewDelegate> {
     // common stuff
