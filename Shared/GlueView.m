@@ -59,6 +59,16 @@ static CGFloat    kAlphaZeroThreshold   = 560.f;
     [labels release];
 }
 
+- (void)repositionScrollView {
+    CGFloat contentOffsetY = [[UIScreen mainScreen] bounds].size.height * 3 / 4;
+    CGRect frame = CGRectMake(0, 0, // TODO: get rid of the hardcoded 70 here
+                              [[UIScreen mainScreen] bounds].size.width,
+                              [[UIScreen mainScreen] bounds].size.height - 70);
+    self.scrollView.frame = frame;
+    self.scrollView.contentSize = CGSizeMake(frame.size.width, frame.size.height * 3);
+    self.scrollView.contentOffset = CGPointMake(0, contentOffsetY);
+}
+
 - (id)init {
     if(self = [super init]) {
         CGFloat contentOffsetY = [[UIScreen mainScreen] bounds].size.height * 3 / 4;
@@ -67,14 +77,10 @@ static CGFloat    kAlphaZeroThreshold   = 560.f;
         [self initLabelsWithContentOffsetY:contentOffsetY];
         
         // set up the scrollView
-        CGRect frame = CGRectMake(0, 0, // TODO: get rid of the hardcoded 70 here
-                                  [[UIScreen mainScreen] bounds].size.width,
-                                  [[UIScreen mainScreen] bounds].size.height - 70);
-        self.scrollView = [[UIScrollView alloc] initWithFrame:frame];
-        self.scrollView.contentSize = CGSizeMake(frame.size.width, frame.size.height * 3);
-        self.scrollView.contentOffset = CGPointMake(0, contentOffsetY);
+        self.scrollView = [[UIScrollView alloc] init];
         self.scrollView.showsVerticalScrollIndicator = NO;
         self.scrollView.delegate = self;
+        [self repositionScrollView];
         
         // set up the hierarchy
         [self addSubview:self.scrollView];
@@ -119,6 +125,7 @@ static CGFloat    kAlphaZeroThreshold   = 560.f;
                             [[UIScreen mainScreen] bounds].size.height - 70);
     self.index = index;
     self.glue = glue;
+    [self repositionScrollView];
     [self updateText];
 }
 
