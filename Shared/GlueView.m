@@ -13,27 +13,27 @@
 @synthesize label = _label;
 @synthesize index = _index;
 
-- (id)initWithIndex:(NSUInteger)index andTitle:(NSString *)title {
-    NSLog(@"creating new at index %@", [NSNumber numberWithInt:index]);
-    self = [super init];
-    if (self) {
-        UIFont *font = [UIFont fontWithName:@"AmericanTypewriter-Bold" size:23.0];
-        
-        CGRect frame = CGRectMake(320 * index, 0, 320, 200);
-        self.frame = frame;
-        self.index = index;
-        
-        self.label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 200)];
+- (id)init {
+    NSLog(@"creating a new GlueView");
+    if(self = [super init]) {
+        self.label = [[UILabel alloc] init];
         self.label.backgroundColor = [UIColor clearColor];
-        self.label.font = font;
+        self.label.font = [UIFont fontWithName:@"AmericanTypewriter-Bold" size:23.0];
         self.label.textAlignment = UITextAlignmentCenter;
         self.label.textColor = [UIColor lightTextColor];
         self.label.numberOfLines = 10;
+        self.label.frame = CGRectMake(0, 0, 320, 200);
         
-        [self setTitle:title];
         [self addSubview:self.label];
     }
     return self;
+}
+
+- (void)configureAtIndex:(NSUInteger)index withTitle:(NSString *)title {
+    self.frame = CGRectMake(320 * index, 0, 320, 200);
+    self.index = index;
+    
+    self.label.text = title;
 }
 
 - (void)setTitle:(NSString *)newTitle {

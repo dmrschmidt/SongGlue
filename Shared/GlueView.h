@@ -13,8 +13,7 @@
     NSUInteger _index;
 }
 
-- (id)initWithIndex:(NSUInteger)index andTitle:(NSString *)title;
-
+- (void)configureAtIndex:(NSUInteger)index withTitle:(NSString *)title;
 - (void)setTitle:(NSString *)newTitle;
 
 @property(nonatomic, retain) UILabel *label;

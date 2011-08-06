@@ -20,6 +20,7 @@
 @synthesize history_z = _history_z;
 @synthesize scrollView = _scrollView;
 @synthesize visiblePages = _visiblePages;
+@synthesize recycledPages = _recycledPages;
 
 #pragma mark -
 #pragma mark - Shuffle methods
@@ -28,6 +29,7 @@
     [super viewDidLoad];
     
     _visiblePages = [[NSMutableSet alloc] init];
+    _recycledPages = [[NSMutableSet alloc] init];
     
     // initially cache the data
     [self setItemsFromGenericQuery:[[MPMediaQuery songsQuery] items]];
@@ -56,17 +58,36 @@
     lastNeededPageIndex = MIN(lastNeededPageIndex, [self glueCount] - 1);
     
     // Recycle no longer-needed pages
+    for(GlueView *page in self.visiblePages) {
+        if(page.index < firstNeededPageIndex || page.index > lastNeededPageIndex) {
+            [self.recycledPages addObject:page];
+            [page removeFromSuperview];
+        }
+    }
+    [self.visiblePages minusSet:self.recycledPages];
     
     // add missing pages
     for(int index = firstNeededPageIndex; index <= lastNeededPageIndex; index++) {
-        NSLog(@"at index: %@", [NSNumber numberWithInt:index]);
         if(![self isDisplayingPageForIndex:index]) {
-            NSString *title = [self randomTitle];
-            GlueView *glueView = [[GlueView alloc] initWithIndex:index andTitle:title];
+            GlueView *glueView = [self dequeRecycledPage];
+            if(glueView == nil) {
+                glueView = [[[GlueView alloc] init] autorelease];
+            }
+            [glueView configureAtIndex:index withTitle:[self randomTitle]];
             [self.scrollView addSubview:glueView];
             [self.visiblePages addObject:glueView];
         }
     }
+}
+
+- (GlueView *)dequeRecycledPage {
+    GlueView *glueView = [self.recycledPages anyObject];
+    if(glueView) {
+        NSLog(@"recycling");
+        [[glueView retain] autorelease];
+        [self.recycledPages removeObject:glueView];
+    }
+    return glueView;
 }
 
 - (BOOL)isDisplayingPageForIndex:(NSUInteger)index {

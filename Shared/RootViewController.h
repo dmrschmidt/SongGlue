@@ -21,6 +21,7 @@
     // scrolling stuff
     UIScrollView *_scrollView;
     NSMutableSet *_visiblePages;
+    NSMutableSet *_recycledPages;
     
     // accelerometer stuff
     UIAccelerometer *_accelerometer;
@@ -31,7 +32,7 @@
 
 - (NSString *)randomTitle;
 - (NSUInteger)glueCount;
-- (void)configurePage:(GlueView *)glueView forIndex:(NSUInteger)index;
+- (GlueView *)dequeRecycledPage;
 - (BOOL)isDisplayingPageForIndex:(NSUInteger)index;
 - (void)initScrollView;
 - (void)tilePages;
@@ -46,6 +47,7 @@
 
 @property(nonatomic, retain) UIScrollView *scrollView;
 @property(nonatomic, retain) NSMutableSet *visiblePages;
+@property(nonatomic, retain) NSMutableSet *recycledPages;
 
 @property(nonatomic, retain) NSArray *audioSamples;
 

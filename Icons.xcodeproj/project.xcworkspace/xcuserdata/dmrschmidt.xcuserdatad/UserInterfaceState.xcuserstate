@@ -124,7 +124,7 @@
 		<string>IDEWorkspaceTabController_7D77596D-07B0-4011-960E-22546E51C4D0</string>
 		<string>IDEWindowTabBarIsVisible</string>
 		<true/>
-		<string>{{-1, 6}, {1280, 772}}</string>
+		<string>{{0, 6}, {1280, 772}}</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -218,7 +218,7 @@
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>13</integer>
+					<integer>17</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
@@ -234,7 +234,7 @@
 		<string>IDEWorkspaceTabControllerDesignAreaSplitView</string>
 		<string>IDEShowUtilities</string>
 		<string>IDEEditorArea</string>
-		<string>RootViewController.m</string>
+		<string>RootViewController.h</string>
 		<integer>0</integer>
 		<dict>
 			<key>$class</key>
@@ -550,7 +550,7 @@
 		</dict>
 		<string>Icons</string>
 		<string>Shared</string>
-		<string>RootViewController.m</string>
+		<string>RootViewController.h</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -1034,11 +1034,11 @@
 			<key>endingColumnNumber</key>
 			<integer>-1</integer>
 			<key>endingLineNumber</key>
-			<integer>286</integer>
+			<integer>307</integer>
 			<key>startingColumnNumber</key>
 			<integer>-1</integer>
 			<key>startingLineNumber</key>
-			<integer>286</integer>
+			<integer>307</integer>
 			<key>timestamp</key>
 			<dict>
 				<key>CF$UID</key>
@@ -1074,7 +1074,7 @@
 			<key>$classname</key>
 			<string>DVTTextDocumentLocation</string>
 		</dict>
-		<string>Incomplete implementation of class 'RootViewController'</string>
+		<string>Method definition for '-configurePage:forIndex:' not found</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -1084,7 +1084,7 @@
 			<key>NS.objects</key>
 			<array/>
 		</dict>
-		<string>Incomplete implementation of class '*'</string>
+		<string>Method definition for '*' not found</string>
 		<string>i</string>
 		<dict>
 			<key>$class</key>
@@ -1206,7 +1206,7 @@
 				</dict>
 			</array>
 		</dict>
-		<real>760</real>
+		<real>1020</real>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -1497,7 +1497,7 @@
 		<string>DocumentNavigableItemName</string>
 		<string>DocumentExtensionIdentifier</string>
 		<string>DocumentURL</string>
-		<string>public.objective-c-source</string>
+		<string>public.c-header</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -1618,7 +1618,7 @@
 				<integer>109</integer>
 			</dict>
 			<key>NS.string</key>
-			<string>file://localhost/Users/dmrschmidt/Sites/iOS/SongGlue/Shared/RootViewController.m</string>
+			<string>file://localhost/Users/dmrschmidt/Sites/iOS/SongGlue/Shared/RootViewController.h</string>
 		</dict>
 		<dict>
 			<key>$classes</key>
@@ -1687,10 +1687,10 @@
 		<string>PrimaryDocumentVisibleCharacterRange</string>
 		<string>HideAllIssues</string>
 		<string>PrimaryDocumentSelectedCharacterRange</string>
-		<real>334287873.04540199</real>
-		<string>{1183, 1426}</string>
-		<string>{2290, 0}</string>
-		<string>-tilePages</string>
+		<real>334289087.67138398</real>
+		<string>{434, 1308}</string>
+		<string>{904, 0}</string>
+		<string>@interface RootViewController</string>
 		<string>Xcode.IDEKit.EditorDocument.SourceCode</string>
 		<dict>
 			<key>$class</key>
@@ -1709,7 +1709,7 @@
 				<integer>176</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/dmrschmidt/Sites/iOS/SongGlue/Shared/RootViewController.m</string>
+		<string>file://localhost/Users/dmrschmidt/Sites/iOS/SongGlue/Shared/RootViewController.h</string>
 		<dict>
 			<key>$classes</key>
 			<array>
@@ -1733,7 +1733,7 @@
 				</dict>
 			</array>
 		</dict>
-		<string>{{0, 0}, {760, 559}}</string>
+		<string>{{0, 0}, {1020, 559}}</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -4082,9 +4082,9 @@
 				</dict>
 			</array>
 		</dict>
-		<real>334286752.86089301</real>
-		<string>{0, 434}</string>
-		<string>{230, 0}</string>
+		<real>334288442.347839</real>
+		<string>{0, 439}</string>
+		<string>{239, 0}</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -4300,9 +4300,9 @@
 				</dict>
 			</array>
 		</dict>
-		<real>334287730.05186403</real>
-		<string>{0, 1145}</string>
-		<string>{704, 0}</string>
+		<real>334289040.11127901</real>
+		<string>{0, 1060}</string>
+		<string>{293, 0}</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -4586,9 +4586,9 @@
 				</dict>
 			</array>
 		</dict>
-		<real>334286170.419626</real>
-		<string>{264, 1306}</string>
-		<string>{960, 0}</string>
+		<real>334289087.67034298</real>
+		<string>{434, 1308}</string>
+		<string>{904, 0}</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -4730,9 +4730,9 @@
 				</dict>
 			</array>
 		</dict>
-		<real>334287873.04452699</real>
-		<string>{1183, 1426}</string>
-		<string>{2290, 0}</string>
+		<real>334289049.376436</real>
+		<string>{11530, 948}</string>
+		<string>{12473, 0}</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -7262,7 +7262,7 @@
 				<integer>622</integer>
 			</dict>
 			<key>NS.time</key>
-			<real>334287814.25997001</real>
+			<real>334289038.42462099</real>
 		</dict>
 		<dict>
 			<key>$classes</key>
@@ -7273,7 +7273,7 @@
 			<key>$classname</key>
 			<string>NSDate</string>
 		</dict>
-		<string>Today at 03:43</string>
+		<string>Today at 04:03</string>
 		<integer>234</integer>
 		<dict>
 			<key>$class</key>
@@ -7419,7 +7419,7 @@
 				<integer>635</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/dmrschmidt/Sites/iOS/SongGlue/Shared/RootViewController.m</string>
+		<string>file://localhost/Users/dmrschmidt/Sites/iOS/SongGlue/Shared/RootViewController.h</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -7437,7 +7437,7 @@
 				<integer>637</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/dmrschmidt/Sites/iOS/SongGlue/Shared/GlueView.m</string>
+		<string>file://localhost/Users/dmrschmidt/Sites/iOS/SongGlue/Shared/RootViewController.m</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -7455,7 +7455,7 @@
 				<integer>639</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/dmrschmidt/Sites/iOS/SongGlue/en.lproj/RootViewController.xib</string>
+		<string>file://localhost/Users/dmrschmidt/Sites/iOS/SongGlue/Shared/GlueView.m</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -7491,7 +7491,7 @@
 				<integer>643</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/dmrschmidt/Sites/iOS/SongGlue/Shared/RootViewController.h</string>
+		<string>file://localhost/Users/dmrschmidt/Sites/iOS/SongGlue/en.lproj/RootViewController.xib</string>
 		<dict>
 			<key>$class</key>
 			<dict>
