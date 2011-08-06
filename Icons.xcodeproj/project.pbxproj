@@ -47,6 +47,7 @@
 		C36BBA0113EC613000AE1A35 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C36BB9FF13EC613000AE1A35 /* Default@2x.png */; };
 		C36BBA0313EC616200AE1A35 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C36BBA0213EC616200AE1A35 /* Icon@2x.png */; };
 		C36BBA0513EC6DE300AE1A35 /* wood@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C36BBA0413EC6DE300AE1A35 /* wood@2x.png */; };
+		C3EB246613ED8B8A00276C1D /* GlueGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EB246513ED8B8A00276C1D /* GlueGenerator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -99,6 +100,8 @@
 		C36BB9FF13EC613000AE1A35 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		C36BBA0213EC616200AE1A35 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		C36BBA0413EC6DE300AE1A35 /* wood@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wood@2x.png"; sourceTree = "<group>"; };
+		C3EB246413ED8B8A00276C1D /* GlueGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GlueGenerator.h; path = Shared/GlueGenerator.h; sourceTree = "<group>"; };
+		C3EB246513ED8B8A00276C1D /* GlueGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GlueGenerator.m; path = Shared/GlueGenerator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +143,8 @@
 				9F2632D512638B5C00DA83F1 /* LocalGlueViewController.m */,
 				C367DC2113ED5B4D00EA3138 /* WorldGlueViewController.h */,
 				C367DC2213ED5B4D00EA3138 /* WorldGlueViewController.m */,
+				C3EB246413ED8B8A00276C1D /* GlueGenerator.h */,
+				C3EB246513ED8B8A00276C1D /* GlueGenerator.m */,
 			);
 			name = Shared;
 			sourceTree = "<group>";
@@ -327,6 +332,7 @@
 				C35C4B5913ECD9E10027A6ED /* InfiniteScrollView.m in Sources */,
 				C367DC1B13ED5B0400EA3138 /* GlueViewController.m in Sources */,
 				C367DC2413ED5B4D00EA3138 /* WorldGlueViewController.m in Sources */,
+				C3EB246613ED8B8A00276C1D /* GlueGenerator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

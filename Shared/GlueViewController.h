@@ -7,14 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <MediaPlayer/MediaPlayer.h>
 #import <AVFoundation/AVFoundation.h>
 #import "GlueView.h"
 #import "InfiniteScrollView.h"
 
 @interface GlueViewController : UIViewController <UIAccelerometerDelegate, UIScrollViewDelegate> {
     // common stuff
-    NSArray *_itemsFromGenericQuery;
     NSArray *_audioSamples;
     
     // scrolling stuff
@@ -28,11 +26,6 @@
     NSMutableArray *_history_y;
     NSMutableArray *_history_z;
 }
-
-/*
- * Returns a random title from the iPod.
- */
-- (NSString *)randomTitle;
 
 /*
  * deprecated
@@ -64,7 +57,6 @@
  */
 - (void)playAudio;
 
-@property(nonatomic, retain) NSArray *itemsFromGenericQuery;
 @property(nonatomic, retain) NSArray *audioSamples;
 
 @property(nonatomic, retain) UIScrollView *scrollView;

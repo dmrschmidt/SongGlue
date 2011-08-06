@@ -7,10 +7,10 @@
 //
 
 #import "GlueViewController.h"
+#import "GlueGenerator.h"
 
 @implementation GlueViewController
 
-@synthesize itemsFromGenericQuery = _itemsFromGenericQuery;
 @synthesize audioSamples = _audioSamples;
 @synthesize accelerometer = _accelerometer;
 @synthesize history_x = _history_x;
@@ -84,36 +84,11 @@
     int neededPageIndex = floorf(CGRectGetMinX(visibleBounds) / CGRectGetWidth(visibleBounds));
     for(GlueView *pageGlueView in self.visiblePages) {
         if(pageGlueView.index == neededPageIndex) {
-            [pageGlueView configureAtIndex:neededPageIndex withTitle:[self randomTitle]];
+            [pageGlueView configureAtIndex:neededPageIndex withTitle:
+                [[GlueGenerator sharedInstance] randomTitle]];
             [pageGlueView shake];
         }
     }
-}
-
-- (NSString *)randomTitle {
-    NSMutableString *shuffledText = [[NSMutableString alloc] init];
-    
-    NSError *error = NULL;
-    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"\\([^)]*\\)"
-                                                                           options:0
-                                                                             error:&error];
-    
-    for(NSUInteger i = 0; i < 3; i++) {
-        NSUInteger songItemIndex = arc4random() % [[self itemsFromGenericQuery] count];
-        MPMediaItem *song = [[self itemsFromGenericQuery] objectAtIndex:songItemIndex];
-        NSString *songTitle = [NSString stringWithString:[song valueForProperty: MPMediaItemPropertyTitle]];
-        
-        // remove brackets
-        NSString *modifiedString = [regex stringByReplacingMatchesInString:songTitle
-                                                                   options:0
-                                                                     range:NSMakeRange(0, [songTitle length])
-                                                              withTemplate:@""];
-        
-        [shuffledText appendString:modifiedString];
-        if(i < 2) [shuffledText appendString:@"\n"];
-    }
-    
-    return [shuffledText autorelease];
 }
 
 #pragma mark -
@@ -142,7 +117,7 @@
             if(glueView == nil) {
                 glueView = [[[GlueView alloc] init] autorelease];
             }
-            [glueView configureAtIndex:index withTitle:[self randomTitle]];
+            [glueView configureAtIndex:index withTitle:[[GlueGenerator sharedInstance] randomTitle]];
             [self.scrollView addSubview:glueView];
             [self.visiblePages addObject:glueView];
         }
@@ -230,8 +205,8 @@
     _visiblePages = [[NSMutableSet alloc] init];
     _recycledPages = [[NSMutableSet alloc] init];
     
-    // initially cache the data
-    [self setItemsFromGenericQuery:[[MPMediaQuery songsQuery] items]];
+    // get the GlueGenerator
+//    [self setItemsFromGenericQuery:[[MPMediaQuery songsQuery] items]];
     
     [self initScrollView];
     [self initAccelerometer];
