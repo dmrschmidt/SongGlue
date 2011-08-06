@@ -156,7 +156,7 @@
 
 - (NSUInteger)glueCount {
     // for now just static
-    return 5;
+    return 11;
 }
 
 #pragma mark -
@@ -166,15 +166,34 @@
     [self tilePages];
 }
 
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)sender {
+    NSLog(@"relocating");
+    // The key is repositioning without animation
+    if (self.scrollView.contentOffset.x == 0) {
+        // user is scrolling to the left from image 1 to image 10.
+        // reposition offset to show image 10 that is on the right in the scroll view
+        [self.scrollView scrollRectToVisible:CGRectMake(3520,0,320,480) animated:NO];
+    }
+    else if (self.scrollView.contentOffset.x == 3840) {
+        // user is scrolling to the right from image 10 to image 1.
+        // reposition offset to show image 1 that is on the left in the scroll view
+        [self.scrollView scrollRectToVisible:CGRectMake(320,0,320,480) animated:NO];
+    }
+}
+
 #pragma mark -
 #pragma mark - Initialization
 
 - (void)initScrollView {
     CGRect frame = self.view.bounds;
+    
+    // just temporarily to see the scroll thingy
+    frame.size.height = 400;
+    self.scrollView.showsHorizontalScrollIndicator = YES;
+    
     self.scrollView = [[InfiniteScrollView alloc] initWithFrame:frame];
     self.scrollView.delegate = self;
     self.scrollView.pagingEnabled = YES;
-    self.scrollView.showsHorizontalScrollIndicator = NO;
     self.scrollView.contentSize = CGSizeMake(frame.size.width * [self glueCount], frame.size.height);
     [self.view addSubview:self.scrollView];
     

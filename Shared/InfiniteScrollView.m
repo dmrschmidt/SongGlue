@@ -31,6 +31,11 @@
         self.contentOffset = CGPointMake(centerOffsetX, currentOffset.y);
         
         // move the old stuff back over
+//        for(UIView *subView in ((GlueViewController *)self.delegate).visiblePages) {
+//            CGPoint center = subView.center;
+//            center.x = (centerOffsetX - currentOffset.x);
+//            subView.center = center;
+//        }
     }
     
 }
@@ -38,7 +43,7 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-    [self recenterIfNecessary];
+//    [self recenterIfNecessary];
 }
 
 @end

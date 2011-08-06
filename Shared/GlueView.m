@@ -141,8 +141,10 @@ static CGFloat    kAlphaZeroThreshold   = 560.f;
 }
 
 - (void)shakeRecursiveStartingAt:(NSUInteger)loopCount {
+    if(loopCount > 4) return;
     CGPoint center = self.labelView.center;
-    CGFloat newCenterX = center.x - 20;
+    CGFloat newCenterX = center.x + (20 * pow(-1, loopCount));
+    if(loopCount == 4) newCenterX = [[UIScreen mainScreen] bounds].size.width / 2;
     [UIView animateWithDuration:0.1
                      animations:^{self.labelView.center = CGPointMake(newCenterX, center.y);}
                      completion:^(BOOL finished){ [self shakeRecursiveStartingAt:(loopCount+1)]; }];
