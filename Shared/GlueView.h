@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GlueView : UIView {
+@interface GlueView : UIView <UIScrollViewDelegate> {
     UILabel *_label;
     UIScrollView *_scrollView;
     NSUInteger _index;

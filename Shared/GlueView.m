@@ -17,6 +17,8 @@
 - (id)init {
     NSLog(@"creating a new GlueView");
     if(self = [super init]) {
+        CGFloat contentOffsetY = [[UIScreen mainScreen] bounds].size.height * 3 / 4;
+        
         // set up the label
         self.label = [[UILabel alloc] init];
         self.label.backgroundColor = [UIColor clearColor];
@@ -26,7 +28,7 @@
         self.label.numberOfLines = 10;
         self.label.shadowColor = [UIColor darkTextColor];
         self.label.shadowOffset = CGSizeMake(0, 1);
-        self.label.frame = CGRectMake(10, 300, 300, 200);
+        self.label.frame = CGRectMake(10, 100 + contentOffsetY, 300, 200);
         
         // set up the scrollView
         self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(
@@ -37,8 +39,10 @@
                                                 [[UIScreen mainScreen] bounds].size.height - 70)];
         self.scrollView.contentSize = CGSizeMake(
                                                  [[UIScreen mainScreen] bounds].size.width,
-                                                 [[UIScreen mainScreen] bounds].size.height * 2);
-        self.scrollView.contentOffset = CGPointMake(0, 200);
+                                                 ([[UIScreen mainScreen] bounds].size.height - 70) * 3);
+        self.scrollView.contentOffset = CGPointMake(0, contentOffsetY);
+        self.scrollView.showsVerticalScrollIndicator = NO;
+        self.scrollView.delegate = self;
         
         // set up the hierarchy
         [self addSubview:self.scrollView];
