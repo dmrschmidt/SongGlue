@@ -46,6 +46,9 @@
 		C36BBA0113EC613000AE1A35 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C36BB9FF13EC613000AE1A35 /* Default@2x.png */; };
 		C36BBA0313EC616200AE1A35 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C36BBA0213EC616200AE1A35 /* Icon@2x.png */; };
 		C36BBA0513EC6DE300AE1A35 /* wood@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C36BBA0413EC6DE300AE1A35 /* wood@2x.png */; };
+		C3A65B6D13EF2D380078D4C8 /* ImageGrabber.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A65B6C13EF2D380078D4C8 /* ImageGrabber.m */; };
+		C3A65B7113EF2D4E0078D4C8 /* GoogleImageGrabber.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A65B7013EF2D4E0078D4C8 /* GoogleImageGrabber.m */; };
+		C3A65B7413EF2D620078D4C8 /* LocalImageGrabber.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A65B7313EF2D620078D4C8 /* LocalImageGrabber.m */; };
 		C3EB246613ED8B8A00276C1D /* GlueGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EB246513ED8B8A00276C1D /* GlueGenerator.m */; };
 		C3EB247F13ED8E4100276C1D /* Glue.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EB247E13ED8E4100276C1D /* Glue.m */; };
 		C3EB248813EDDBE800276C1D /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EB248613EDDBE800276C1D /* FavoritesViewController.m */; };
@@ -101,6 +104,12 @@
 		C36BB9FF13EC613000AE1A35 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		C36BBA0213EC616200AE1A35 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		C36BBA0413EC6DE300AE1A35 /* wood@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wood@2x.png"; sourceTree = "<group>"; };
+		C3A65B6B13EF2D380078D4C8 /* ImageGrabber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageGrabber.h; path = Shared/ImageGrabber.h; sourceTree = "<group>"; };
+		C3A65B6C13EF2D380078D4C8 /* ImageGrabber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageGrabber.m; path = Shared/ImageGrabber.m; sourceTree = "<group>"; };
+		C3A65B6F13EF2D4E0078D4C8 /* GoogleImageGrabber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GoogleImageGrabber.h; path = Shared/GoogleImageGrabber.h; sourceTree = "<group>"; };
+		C3A65B7013EF2D4E0078D4C8 /* GoogleImageGrabber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoogleImageGrabber.m; path = Shared/GoogleImageGrabber.m; sourceTree = "<group>"; };
+		C3A65B7213EF2D620078D4C8 /* LocalImageGrabber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocalImageGrabber.h; path = Shared/LocalImageGrabber.h; sourceTree = "<group>"; };
+		C3A65B7313EF2D620078D4C8 /* LocalImageGrabber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocalImageGrabber.m; path = Shared/LocalImageGrabber.m; sourceTree = "<group>"; };
 		C3EB246413ED8B8A00276C1D /* GlueGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GlueGenerator.h; path = Shared/GlueGenerator.h; sourceTree = "<group>"; };
 		C3EB246513ED8B8A00276C1D /* GlueGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GlueGenerator.m; path = Shared/GlueGenerator.m; sourceTree = "<group>"; };
 		C3EB247D13ED8E4100276C1D /* Glue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Glue.h; path = Shared/Glue.h; sourceTree = "<group>"; };
@@ -138,22 +147,12 @@
 		28EEBF621118D79A00187D67 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				C3A65B7713EF2DAC0078D4C8 /* Models */,
+				C3A65B7513EF2D710078D4C8 /* Controllers */,
+				C3A65B7813EF2DBF0078D4C8 /* Views */,
+				C3A65B7613EF2D860078D4C8 /* Utilities */,
 				9FC6A490126CE71E008D73BA /* AppDelegate.h */,
 				9FC6A491126CE71E008D73BA /* AppDelegate.m */,
-				C35C4B5313ECC17C0027A6ED /* GlueView.h */,
-				C35C4B5413ECC17C0027A6ED /* GlueView.m */,
-				C367DC1913ED5B0400EA3138 /* GlueViewController.h */,
-				C367DC1A13ED5B0400EA3138 /* GlueViewController.m */,
-				9F2632D412638B5C00DA83F1 /* LocalGlueViewController.h */,
-				9F2632D512638B5C00DA83F1 /* LocalGlueViewController.m */,
-				C367DC2113ED5B4D00EA3138 /* WorldGlueViewController.h */,
-				C367DC2213ED5B4D00EA3138 /* WorldGlueViewController.m */,
-				C3EB246413ED8B8A00276C1D /* GlueGenerator.h */,
-				C3EB246513ED8B8A00276C1D /* GlueGenerator.m */,
-				C3EB247D13ED8E4100276C1D /* Glue.h */,
-				C3EB247E13ED8E4100276C1D /* Glue.m */,
-				C3EB248513EDDBE800276C1D /* FavoritesViewController.h */,
-				C3EB248613EDDBE800276C1D /* FavoritesViewController.m */,
 			);
 			name = Shared;
 			sourceTree = "<group>";
@@ -243,6 +242,54 @@
 				C367DC1113ED5A5200EA3138 /* Bobby.m4a */,
 			);
 			name = Audio;
+			sourceTree = "<group>";
+		};
+		C3A65B7513EF2D710078D4C8 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C367DC1913ED5B0400EA3138 /* GlueViewController.h */,
+				C367DC1A13ED5B0400EA3138 /* GlueViewController.m */,
+				9F2632D412638B5C00DA83F1 /* LocalGlueViewController.h */,
+				9F2632D512638B5C00DA83F1 /* LocalGlueViewController.m */,
+				C367DC2113ED5B4D00EA3138 /* WorldGlueViewController.h */,
+				C367DC2213ED5B4D00EA3138 /* WorldGlueViewController.m */,
+				C3EB248513EDDBE800276C1D /* FavoritesViewController.h */,
+				C3EB248613EDDBE800276C1D /* FavoritesViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		C3A65B7613EF2D860078D4C8 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				C3EB246413ED8B8A00276C1D /* GlueGenerator.h */,
+				C3EB246513ED8B8A00276C1D /* GlueGenerator.m */,
+				C3A65B6B13EF2D380078D4C8 /* ImageGrabber.h */,
+				C3A65B6C13EF2D380078D4C8 /* ImageGrabber.m */,
+				C3A65B6F13EF2D4E0078D4C8 /* GoogleImageGrabber.h */,
+				C3A65B7013EF2D4E0078D4C8 /* GoogleImageGrabber.m */,
+				C3A65B7213EF2D620078D4C8 /* LocalImageGrabber.h */,
+				C3A65B7313EF2D620078D4C8 /* LocalImageGrabber.m */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		C3A65B7713EF2DAC0078D4C8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C3EB247D13ED8E4100276C1D /* Glue.h */,
+				C3EB247E13ED8E4100276C1D /* Glue.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		C3A65B7813EF2DBF0078D4C8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C35C4B5313ECC17C0027A6ED /* GlueView.h */,
+				C35C4B5413ECC17C0027A6ED /* GlueView.m */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -347,6 +394,9 @@
 				C3EB246613ED8B8A00276C1D /* GlueGenerator.m in Sources */,
 				C3EB247F13ED8E4100276C1D /* Glue.m in Sources */,
 				C3EB248813EDDBE800276C1D /* FavoritesViewController.m in Sources */,
+				C3A65B6D13EF2D380078D4C8 /* ImageGrabber.m in Sources */,
+				C3A65B7113EF2D4E0078D4C8 /* GoogleImageGrabber.m in Sources */,
+				C3A65B7413EF2D620078D4C8 /* LocalImageGrabber.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
