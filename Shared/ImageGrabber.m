@@ -10,6 +10,9 @@
 
 @implementation ImageGrabber
 
+@synthesize delegate = _delegate;
+@synthesize activeRequest = _activeRequest;
+
 - (id)init
 {
     self = [super init];
@@ -18,6 +21,20 @@
     }
     
     return self;
+}
+
+- (void)requestImage {
+    
+}
+
+- (void)cancelImageRequest {
+    
+}
+
+- (void)dealloc {
+    [_activeRequest release];
+    
+    [super dealloc];
 }
 
 @end

@@ -8,6 +8,34 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ImageGrabber : NSObject
+@protocol ImageGrabberDelegate
+/**
+ * Delegate method will be called with the downloaded image once the
+ * download is complete.
+ */
+- (void)imageDidLoad:(UIImage *)image;
+
+@end
+
+
+@interface ImageGrabber : NSObject {
+    id <ImageGrabberDelegate> _delegate;
+    
+@private
+    NSMutableData *_activeRequest;
+}
+
+@property (nonatomic, assign) id <ImageGrabberDelegate> delegate;
+@property (nonatomic, retain) NSMutableData *activeRequest;
+
+/**
+ * Request an image.
+ */
+- (void)requestImage;
+
+/**
+ * Cancel the request for the image.
+ */
+- (void)cancelImageRequest;
 
 @end

@@ -8,6 +8,16 @@
 
 #import "ImageGrabber.h"
 
-@interface GoogleImageGrabber : ImageGrabber
+@interface GoogleImageGrabber : ImageGrabber {
+    
+@private
+    NSString *_imageURLString;
+    NSURLConnection *_imageConnection;
+    NSMutableData *_activeDownload;
+}
+
+@property (nonatomic, retain) NSString *imageURLString;
+@property (nonatomic, retain) NSURLConnection *imageConnection;
+@property (nonatomic, retain) NSMutableData *activeDownload;
 
 @end

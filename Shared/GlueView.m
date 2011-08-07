@@ -90,6 +90,16 @@ static CGFloat    kAlphaZeroThreshold   = 560.f;
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    
+    /* 
+     * TODO:
+     * IF POSSIBLE, USE ZOOMING TO "FAKE" SHRINKING OF THE TEXT!
+     * IT SHOULD ACTUALLY BE POSSIBLE TO ZOOM IN AND OUT OF A SCROLLVIEW
+     * SUCH AS IT IS ALSO POSSIBLE TO REPOSITION IT'S CONTENT OFFSET.
+     * THE ANIMATION WOULD THAN BE REALLY SMOOTH (OR SO I GUESS) AND
+     * THERE SHOULD BE NO "GLITCHES" WITH THE LABELS EITHER.
+     */
+    
     // store the old center and frame
     CGPoint oldCenter = self.labelView.center;
     CGRect  oldFrame  = self.labelView.frame;
