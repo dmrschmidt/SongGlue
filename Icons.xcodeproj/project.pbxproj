@@ -49,6 +49,7 @@
 		C3A65B6D13EF2D380078D4C8 /* ImageGrabber.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A65B6C13EF2D380078D4C8 /* ImageGrabber.m */; };
 		C3A65B7113EF2D4E0078D4C8 /* GoogleImageGrabber.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A65B7013EF2D4E0078D4C8 /* GoogleImageGrabber.m */; };
 		C3A65B7413EF2D620078D4C8 /* LocalImageGrabber.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A65B7313EF2D620078D4C8 /* LocalImageGrabber.m */; };
+		C3A65B9113EF4ED00078D4C8 /* NSMutableArray+Shuffling.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A65B9013EF4ECF0078D4C8 /* NSMutableArray+Shuffling.m */; };
 		C3EB246613ED8B8A00276C1D /* GlueGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EB246513ED8B8A00276C1D /* GlueGenerator.m */; };
 		C3EB247F13ED8E4100276C1D /* Glue.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EB247E13ED8E4100276C1D /* Glue.m */; };
 		C3EB248813EDDBE800276C1D /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EB248613EDDBE800276C1D /* FavoritesViewController.m */; };
@@ -110,6 +111,8 @@
 		C3A65B7013EF2D4E0078D4C8 /* GoogleImageGrabber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoogleImageGrabber.m; path = Shared/GoogleImageGrabber.m; sourceTree = "<group>"; };
 		C3A65B7213EF2D620078D4C8 /* LocalImageGrabber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocalImageGrabber.h; path = Shared/LocalImageGrabber.h; sourceTree = "<group>"; };
 		C3A65B7313EF2D620078D4C8 /* LocalImageGrabber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocalImageGrabber.m; path = Shared/LocalImageGrabber.m; sourceTree = "<group>"; };
+		C3A65B8F13EF4ECF0078D4C8 /* NSMutableArray+Shuffling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Shuffling.h"; sourceTree = "<group>"; };
+		C3A65B9013EF4ECF0078D4C8 /* NSMutableArray+Shuffling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Shuffling.m"; sourceTree = "<group>"; };
 		C3EB246413ED8B8A00276C1D /* GlueGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GlueGenerator.h; path = Shared/GlueGenerator.h; sourceTree = "<group>"; };
 		C3EB246513ED8B8A00276C1D /* GlueGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GlueGenerator.m; path = Shared/GlueGenerator.m; sourceTree = "<group>"; };
 		C3EB247D13ED8E4100276C1D /* Glue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Glue.h; path = Shared/Glue.h; sourceTree = "<group>"; };
@@ -270,6 +273,8 @@
 				C3A65B7013EF2D4E0078D4C8 /* GoogleImageGrabber.m */,
 				C3A65B7213EF2D620078D4C8 /* LocalImageGrabber.h */,
 				C3A65B7313EF2D620078D4C8 /* LocalImageGrabber.m */,
+				C3A65B8F13EF4ECF0078D4C8 /* NSMutableArray+Shuffling.h */,
+				C3A65B9013EF4ECF0078D4C8 /* NSMutableArray+Shuffling.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -397,6 +402,7 @@
 				C3A65B6D13EF2D380078D4C8 /* ImageGrabber.m in Sources */,
 				C3A65B7113EF2D4E0078D4C8 /* GoogleImageGrabber.m in Sources */,
 				C3A65B7413EF2D620078D4C8 /* LocalImageGrabber.m in Sources */,
+				C3A65B9113EF4ED00078D4C8 /* NSMutableArray+Shuffling.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

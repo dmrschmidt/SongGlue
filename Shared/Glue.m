@@ -43,11 +43,33 @@
     }
 }
 
+- (BOOL)array:(NSArray *)array1 equalsArray:(NSArray *)array2 {
+    BOOL areEqual = [array1 count] == [array2 count];
+    NSUInteger arrayIndex = -1;
+    while(areEqual && ++arrayIndex < [array1 count]) {
+        areEqual &= ([array1 objectAtIndex:arrayIndex] == [array2 objectAtIndex:arrayIndex]);
+    }
+    return areEqual;
+}
+
+- (void)shuffle {
+    NSMutableArray *originalArray = [NSMutableArray arrayWithArray:self.mediaItems];
+    NSMutableArray *shuffleArray = [NSMutableArray arrayWithArray:self.mediaItems];
+    // Here we want the list to ALWAYS be (randomly) different from the state before.
+    // NSMutableArray#shuffle is OK as is, but it doesn't meet this requirement due
+    // to it's "real" randomness (shuffle called twice could result in same order).
+    while([self array:shuffleArray equalsArray:originalArray]) {
+        [shuffleArray shuffle];
+    }
+    self.mediaItems = shuffleArray;
+}
+
 - (NSString *)gluePartForIndex:(NSUInteger)index {
     NSError *error = NULL;
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"\\([^)]*\\)"
                                                                            options:0
                                                                              error:&error];
+//    self.mediaItems so
     MPMediaItem *mediaItem = [self.mediaItems objectAtIndex:index];
     NSString *property = [NSString stringWithString:[mediaItem valueForProperty:
                                                       [self mediaItemPropertyForIndex:index]]];

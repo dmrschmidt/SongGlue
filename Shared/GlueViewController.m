@@ -24,6 +24,32 @@
 static BOOL scrolled = NO;
 
 #pragma mark -
+#pragma mark - Glue methods
+
+- (GlueView *)currentGlueView {
+    CGRect visibleBounds = self.scrollView.bounds;
+    int neededPageIndex = floorf(CGRectGetMinX(visibleBounds) / CGRectGetWidth(visibleBounds));
+    for(GlueView *pageGlueView in self.visiblePages) {
+        if(pageGlueView.index == neededPageIndex) {
+            return pageGlueView;
+        }
+    }
+    return nil;
+}
+
+- (IBAction)updateTitle:(id)sender {
+    CGRect visibleBounds = self.scrollView.bounds;
+    int neededPageIndex = floorf(CGRectGetMinX(visibleBounds) / CGRectGetWidth(visibleBounds));
+    GlueView *pageGlueView = [self currentGlueView];
+    [pageGlueView configureAtIndex:neededPageIndex withGlue:[GlueGenerator randomGlue]];
+}
+
+- (IBAction)toggleDisplayMode:(id)sender {
+    [[GlueGenerator sharedInstance] toggleGenerationMode];
+    [[self currentGlueView] toggleDisplayMode:sender];
+}
+
+#pragma mark -
 #pragma mark - Hardware (Audio, Accelerometer) stuff
 
 - (void)playAudio {
@@ -73,37 +99,14 @@ static BOOL scrolled = NO;
         // When the summed variation (since we want to detect shake in any direction)
         // is bigger than our (experimentally determined) threshold, trigger the update.
         if(variation_x + variation_y + variation_z > .5f) {
-            [self updateTitle:self];
+            // TODO: Looks like GlueView should rather be accessed through a new
+            //       GlueViewController. Calling shuffle on a view seems too much logic
+            //       for the view alone maybe.
+            [[self currentGlueView] shuffle];
+            [[self currentGlueView] shakeVertical];
             [self playAudio];
         }
     }
-}
-
-#pragma mark -
-#pragma mark - Glue methods
-
-- (GlueView *)currentGlueView {
-    CGRect visibleBounds = self.scrollView.bounds;
-    int neededPageIndex = floorf(CGRectGetMinX(visibleBounds) / CGRectGetWidth(visibleBounds));
-    for(GlueView *pageGlueView in self.visiblePages) {
-        if(pageGlueView.index == neededPageIndex) {
-            return pageGlueView;
-        }
-    }
-    return nil;
-}
-
-- (IBAction)updateTitle:(id)sender {
-    CGRect visibleBounds = self.scrollView.bounds;
-    int neededPageIndex = floorf(CGRectGetMinX(visibleBounds) / CGRectGetWidth(visibleBounds));
-    GlueView *pageGlueView = [self currentGlueView];
-    [pageGlueView configureAtIndex:neededPageIndex withGlue:[GlueGenerator randomGlue]];
-    [pageGlueView shake];
-}
-
-- (IBAction)toggleDisplayMode:(id)sender {
-    [[GlueGenerator sharedInstance] toggleGenerationMode];
-    [[self currentGlueView] toggleDisplayMode:sender];
 }
 
 #pragma mark -

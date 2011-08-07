@@ -150,18 +150,52 @@ static CGFloat    kAlphaZeroThreshold   = 560.f;
     [UIView commitAnimations];
 }
 
+- (void)shuffle {
+    [self.glue shuffle];
+    [self updateText];
+}
+
+CGPoint center;
+BOOL isShaking = NO;
+
 - (void)shakeRecursiveStartingAt:(NSUInteger)loopCount {
-    if(loopCount > 4) return;
-    CGPoint center = self.labelView.center;
+    if(loopCount > 4) {
+        isShaking = NO;
+        return;
+    }
+    isShaking = YES;
     CGFloat newCenterX = center.x + (20 * pow(-1, loopCount));
-    if(loopCount == 4) newCenterX = [[UIScreen mainScreen] bounds].size.width / 2;
+    if(loopCount == 4) newCenterX = center.x;
     [UIView animateWithDuration:0.1
                      animations:^{self.labelView.center = CGPointMake(newCenterX, center.y);}
                      completion:^(BOOL finished){ [self shakeRecursiveStartingAt:(loopCount+1)]; }];
 }
 
-- (void)shake {
+- (void)shakeHorizontally {
+    center = self.labelView.center;
     [self shakeRecursiveStartingAt:0];
+}
+
+- (void)shake {
+    [self shakeHorizontally];
+}
+
+- (void)shakeVerticalRecursiveStartingAt:(NSUInteger)loopCount {
+    if(loopCount > 4) {
+        isShaking = NO;
+        return;
+    }
+    isShaking = YES;
+    CGFloat newCenterY = center.y + (10 * pow(-1, loopCount));
+    if(loopCount == 4) newCenterY = center.y;
+    [UIView animateWithDuration:0.05
+                     animations:^{self.labelView.center = CGPointMake(center.x, newCenterY);}
+                     completion:^(BOOL finished){ [self shakeVerticalRecursiveStartingAt:(loopCount+1)]; }];
+}
+
+- (void)shakeVertical {
+    center = self.labelView.center;
+    [self shakeVerticalRecursiveStartingAt:0];
 }
 
 

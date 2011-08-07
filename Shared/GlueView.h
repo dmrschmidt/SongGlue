@@ -20,7 +20,10 @@
 
 - (void)configureAtIndex:(NSUInteger)index withGlue:(Glue *)glue;
 - (IBAction)toggleDisplayMode:(id)sender;
-- (void)shake;
+- (void)shake __attribute__ ((deprecated));
+- (void)shakeHorizontally;
+- (void)shakeVertical;
+- (void)shuffle;
 
 @property(nonatomic, retain) UIView *labelView;
 @property(nonatomic, retain) NSArray *labels;

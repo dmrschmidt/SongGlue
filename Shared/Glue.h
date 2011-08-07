@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NSMutableArray+Shuffling.h"
 
 enum {
     GGGenerationModeDefault   = 0,
@@ -39,6 +40,11 @@ typedef NSUInteger GGGenerationMode;
  *
  */
 - (NSString *)gluedString;
+
+/*
+ *
+ */
+- (void)shuffle;
 
 @property(nonatomic, retain) NSArray *mediaItems;
 @property(nonatomic, assign) GGGenerationMode generationMode;
