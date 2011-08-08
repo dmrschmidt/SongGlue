@@ -19,11 +19,50 @@ static CGFloat    kAnimationThreshold   = 350.f;
 static CGFloat    kAlphaZeroThreshold   = 560.f;
 static CGFloat    kContentOffsetY       =  -1.f;
 
+@synthesize imageView = _imageView;
 @synthesize labelView = _labelView;
 @synthesize labels = _labels;
 @synthesize scrollView = _scrollView;
 @synthesize index = _index;
 @synthesize glue = _glue;
+
+
+
+
+// TODO: refactor (move) this method to the GlueGenerator
+- (void)updateImage {
+    // TODO: don't alloc this each call!
+    ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
+    
+    // Enumerate just the photos and videos group by using ALAssetsGroupSavedPhotos.
+    [library enumerateGroupsWithTypes:ALAssetsGroupSavedPhotos usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
+        // Within the group enumeration block, filter to enumerate just videos.
+        [group setAssetsFilter:[ALAssetsFilter allPhotos]];
+        
+        // For this example, we're only interested in the first item.
+        NSUInteger count = [group numberOfAssets];
+        if(count > 0) {
+            NSUInteger index = arc4random() % count;
+            NSLog(@"count: %@, index: %@", [NSNumber numberWithInt:count], [NSNumber numberWithInt:index]);
+            [group enumerateAssetsAtIndexes:[NSIndexSet indexSetWithIndex:index]
+                                    options:0
+                                 usingBlock:^(ALAsset *alAsset, NSUInteger index, BOOL *innerStop) {
+                                     
+                // The end of the enumeration is signaled by asset == nil.
+                if (alAsset) {
+                    ALAssetRepresentation *representation = [alAsset defaultRepresentation];
+                    // Do something interesting with the AV asset.
+                    self.imageView.image = [UIImage imageWithCGImage:[representation fullResolutionImage]];
+                }
+            }];
+        }
+    }
+        failureBlock: ^(NSError *error) {
+            // Typically you should handle an error more gracefully than this.
+            NSLog(@"No groups");
+    }];
+    [library release];
+}
 
 // TODO: can I actually get rid of kContentOffsetY now, since the vertical scrollbar
 // will never differ in contentOffset anymore?
@@ -34,6 +73,11 @@ static CGFloat    kContentOffsetY       =  -1.f;
                                                               kLabelContainerWidth,
                                                               kLabelContainerHeight)];
     self.labelView.autoresizesSubviews = YES;
+    // TODO: make the image view a property, of course
+    // TODO: also, make the imageView a sperate view
+    CGRect frame = CGRectMake(0, 0, 200, 200);
+    self.imageView = [[UIImageView alloc] initWithFrame:frame];
+    self.imageView.contentMode = UIViewContentModeScaleAspectFill;
     NSMutableArray *labels = [[NSMutableArray alloc] initWithCapacity:kLabelCount];
     
     for(int labelIndex = 0; labelIndex < kLabelCount; labelIndex++) {
@@ -54,7 +98,10 @@ static CGFloat    kContentOffsetY       =  -1.f;
                                  kLabelContainerWidth - 10,
                                  (kLabelContainerHeight / kLabelCount));
         
-        [self.labelView addSubview:label];
+        
+        [self.labelView addSubview:self.imageView];
+        [self.imageView addSubview:label];
+//        [self.labelView addSubview:label];
         [labels addObject:label];
         [label release];
     }
@@ -106,8 +153,8 @@ static CGFloat    kContentOffsetY       =  -1.f;
      * THERE SHOULD BE NO "GLITCHES" WITH THE LABELS EITHER.
      */
     // store the old center and frame
-    CGPoint oldCenter = self.labelView.center;
-    CGRect  oldFrame  = self.labelView.frame;
+//    CGPoint oldCenter = self.labelView.center;
+//    CGRect  oldFrame  = self.labelView.frame;
     
     /* fade the text out when flicking to top */
     CGFloat alphaSpan = kAlphaZeroThreshold - kAnimationThreshold;
@@ -162,6 +209,7 @@ static CGFloat    kContentOffsetY       =  -1.f;
     self.index = index;
     self.glue = glue;
     [self repositionScrollView];
+    [self updateImage];
     [self updateText];
 }
 
