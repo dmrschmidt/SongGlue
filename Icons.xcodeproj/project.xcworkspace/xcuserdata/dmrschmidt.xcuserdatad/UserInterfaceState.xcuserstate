@@ -920,9 +920,9 @@
 		<string>PrimaryDocumentVisibleCharacterRange</string>
 		<string>HideAllIssues</string>
 		<string>PrimaryDocumentSelectedCharacterRange</string>
-		<real>334466207.43252498</real>
-		<string>{2459, 2333}</string>
-		<string>{4406, 0}</string>
+		<real>334496294.115587</real>
+		<string>{3668, 1904}</string>
+		<string>{4420, 0}</string>
 		<dict>
 			<key>$classes</key>
 			<array>
@@ -932,7 +932,7 @@
 			<key>$classname</key>
 			<string>NSDictionary</string>
 		</dict>
-		<string>-initLabelsWithContentOffsetY:</string>
+		<string>-updateImage</string>
 		<string>Xcode.IDEKit.EditorDocument.SourceCode</string>
 		<dict>
 			<key>$class</key>
@@ -1572,7 +1572,7 @@
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>152</integer>
+					<integer>154</integer>
 				</dict>
 				<dict>
 					<key>CF$UID</key>
@@ -7020,9 +7020,9 @@
 				</dict>
 			</array>
 		</dict>
-		<real>334466162.54420203</real>
+		<real>334492853.07095498</real>
 		<string>{0, 1027}</string>
-		<string>{724, 0}</string>
+		<string>{724, 15}</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -8231,9 +8231,9 @@
 				</dict>
 			</array>
 		</dict>
-		<real>334466207.43165702</real>
-		<string>{2459, 2333}</string>
-		<string>{4406, 0}</string>
+		<real>334496294.11478102</real>
+		<string>{3668, 1904}</string>
+		<string>{4420, 0}</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -11350,7 +11350,7 @@
 		</dict>
 		<string>IDEDeviceLocation</string>
 		<string>IDEDeviceArchitecture</string>
-		<string>dvtdevice-iphone:1d433193366c50e78821dbf1f8235946f166e868</string>
+		<string>dvtdevice-iphonePlaceholder:placeholder</string>
 		<string>armv7</string>
 		<dict>
 			<key>$class</key>
@@ -11672,7 +11672,7 @@
 				<integer>936</integer>
 			</dict>
 			<key>NS.time</key>
-			<real>334466207.25875998</real>
+			<real>334495942.30207002</real>
 		</dict>
 		<dict>
 			<key>$classes</key>
@@ -11683,7 +11683,7 @@
 			<key>$classname</key>
 			<string>NSDate</string>
 		</dict>
-		<string>Today at 05:16</string>
+		<string>Today at 13:32</string>
 		<integer>234</integer>
 		<dict>
 			<key>$class</key>

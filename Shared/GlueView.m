@@ -11,14 +11,20 @@
 @implementation GlueView
 
 static NSUInteger kLabelCount           =   3;
-static CGFloat    kLabelBorderTop       = 120.f;
+static CGFloat    kBorderViewBorderTop  =  40.f;
+static CGFloat    kBorderViewWidth      = 290.f;
+static CGFloat    kImageViewHeight      = 232.f;
+static CGFloat    kImageViewBorderTop   =  32.f;
+static CGFloat    kLabelBorderTop       =  39.f;
 static CGFloat    kLabelBorderSides     =  10.f;
-static CGFloat    kLabelContainerWidth  = 300.f;
-static CGFloat    kLabelContainerHeight =  81.f;
+static CGFloat    kLabelContainerWidth  = 280.f;
+// the 400 is quite random!
+static CGFloat    kLabelContainerHeight = 400.f;
 static CGFloat    kAnimationThreshold   = 350.f;
 static CGFloat    kAlphaZeroThreshold   = 560.f;
 static CGFloat    kContentOffsetY       =  -1.f;
 
+@synthesize borderImageView = _borderImageView;
 @synthesize imageView = _imageView;
 @synthesize labelView = _labelView;
 @synthesize labels = _labels;
@@ -26,16 +32,38 @@ static CGFloat    kContentOffsetY       =  -1.f;
 @synthesize index = _index;
 @synthesize glue = _glue;
 
+ALAssetsLibrary *_library = nil;
+BOOL _isGettingImage = NO;
 
 
+- (ALAssetsLibrary *)library {
+    if(!_library) {
+        _library = [[ALAssetsLibrary alloc] init];
+    }
+    return _library;
+}
 
-// TODO: refactor (move) this method to the GlueGenerator
-- (void)updateImage {
-    // TODO: don't alloc this each call!
-    ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
+- (CGSize)getMinimalSizeForSize:(CGSize)size {
+    // TODO: make this maxWidth generic
+    //       also, (maybe) don't assume that width is always bigger than height
+    //       note: the *2 is for the Retina support
+    CGFloat maxWidth = (kLabelContainerWidth - 20) * 2;
+    CGFloat scale = maxWidth / size.width;
+    CGSize newSize = CGSizeMake(maxWidth,
+                                scale * size.height);
+    return newSize;
+}
+
+- (void)getImage {
+    // set up the thread's own NSAutoreleasePool here
+    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+    
+    @synchronized(self) {
+        _isGettingImage = YES;
+    }
     
     // Enumerate just the photos and videos group by using ALAssetsGroupSavedPhotos.
-    [library enumerateGroupsWithTypes:ALAssetsGroupSavedPhotos usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
+    [[self library] enumerateGroupsWithTypes:ALAssetsGroupSavedPhotos usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
         // Within the group enumeration block, filter to enumerate just videos.
         [group setAssetsFilter:[ALAssetsFilter allPhotos]];
         
@@ -47,65 +75,83 @@ static CGFloat    kContentOffsetY       =  -1.f;
                                     options:0
                                  usingBlock:^(ALAsset *alAsset, NSUInteger index, BOOL *innerStop) {
                                      
-                // The end of the enumeration is signaled by asset == nil.
-                if (alAsset) {
-                    ALAssetRepresentation *representation = [alAsset defaultRepresentation];
-                    // Do something interesting with the AV asset.
-                    self.imageView.image = [UIImage imageWithCGImage:
-                                            [representation fullResolutionImage]
-                                                               scale:1.0
-                                                         orientation:UIImageOrientationUp];
-                }
-            }];
+                                     // The end of the enumeration is signaled by asset == nil.
+                                     if (alAsset) {
+                                         ALAssetRepresentation *representation = [alAsset defaultRepresentation];
+                                         // Do something interesting with the AV asset.
+                                         UIImage *rawImage = [UIImage imageWithCGImage:[representation fullResolutionImage]
+                                                                                 scale:1.0
+                                                                           orientation:UIImageOrientationUp];
+                                         CGSize newSize = [self getMinimalSizeForSize:rawImage.size];
+                                         UIGraphicsBeginImageContext(newSize);
+                                         [rawImage drawInRect:CGRectMake(0,0,newSize.width,newSize.height)];
+                                         UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
+                                         UIGraphicsEndImageContext();
+                                         self.imageView.image = newImage;
+                                     }
+                                 }];
         }
     }
-        failureBlock: ^(NSError *error) {
-            // Typically you should handle an error more gracefully than this.
-            NSLog(@"No groups");
-    }];
-    [library release];
+                                failureBlock: ^(NSError *error) {
+                                    // TODO: some clever error handling here
+                                    NSLog(@"No groups");
+                                }];
+    @synchronized(self) {
+        _isGettingImage = NO;
+    }
+    [pool release];
 }
 
-// TODO: can I actually get rid of kContentOffsetY now, since the vertical scrollbar
+// TODO: refactor (move) this method to the GlueGenerator
+- (void)updateImage {
+    @synchronized(self) {
+        if(!_isGettingImage) {
+            [NSThread detachNewThreadSelector:@selector(getImage) toTarget:self withObject:nil];
+        }
+    }
+}
+
 // will never differ in contentOffset anymore?
-- (void)initLabelsWithContentOffsetY:(CGFloat)contentOffsetY {
+- (void)initLabels {
     // first, init the label's parent container view
     self.labelView = [[UIView alloc] initWithFrame:CGRectMake(kLabelBorderSides,
-                                                              // TODO remove the hard-coded number here
-                                                              kLabelBorderTop + contentOffsetY + 200,
+                                                              kLabelBorderTop,
                                                               kLabelContainerWidth,
                                                               kLabelContainerHeight)];
     self.labelView.autoresizesSubviews = YES;
     // TODO: Make the imageView a sperate view, which will hold the black border.
     // TODO: Make the frame setting better. (not hardcoded)              // 313 = current size of black background image
-    CGRect frame = CGRectMake(15, 40, kLabelContainerWidth - 10, 313);
+    CGRect frame = CGRectMake(15, kBorderViewBorderTop, kBorderViewWidth, 313);
     UIImageView *borderView = [[UIImageView alloc] initWithFrame:frame];
     borderView.image = [UIImage imageNamed:@"black_border"];
     borderView.contentMode = UIViewContentModeScaleAspectFill;
     
-    frame = CGRectMake(12, 12, kLabelContainerWidth - 35, 251);
+    frame = CGRectMake(12, kImageViewBorderTop, kBorderViewWidth - 25, kImageViewHeight);
     self.imageView = [[UIImageView alloc] initWithFrame:frame];
     self.imageView.clipsToBounds = YES;
     self.imageView.contentMode = UIViewContentModeScaleAspectFill;
     
     NSMutableArray *labels = [[NSMutableArray alloc] initWithCapacity:kLabelCount];
     for(int labelIndex = 0; labelIndex < kLabelCount; labelIndex++) {
+        // TODO: make these calculations a bit more relative
+        CGFloat fontSize = (labelIndex == 0) ? 23.0 : 17.0;
+        CGFloat height = (labelIndex == 0) ? 28.0 : 25.f;
+        CGFloat offsetY = (labelIndex == 0) ? 0 : ((labelIndex == 1) ? 267 : 288);
+        
         UILabel *label = [[UILabel alloc] init];
         label.backgroundColor = [UIColor clearColor];
-        label.font = [UIFont fontWithName:@"AmericanTypewriter-Bold" size:12.0];
+        label.font = [UIFont fontWithName:@"AmericanTypewriter-Bold" size:fontSize];
         label.textAlignment = UITextAlignmentCenter;
         label.textColor = [UIColor lightTextColor];
         label.numberOfLines = 1;
+//        label.backgroundColor = [UIColor grayColor]; // positioning test
         label.shadowColor = [UIColor darkTextColor];
         label.shadowOffset = CGSizeMake(0, 1);
         label.adjustsFontSizeToFitWidth = YES;
         label.minimumFontSize = 3;
         label.lineBreakMode = UILineBreakModeTailTruncation;
         label.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-        label.frame = CGRectMake(5,
-                                 (kLabelContainerHeight / kLabelCount) * labelIndex,
-                                 kLabelContainerWidth - 10,
-                                 (kLabelContainerHeight / kLabelCount));
+        label.frame = CGRectMake(15, offsetY, kLabelContainerWidth - 10, height);
         [self addSubview:borderView];
         [borderView addSubview:self.imageView];
         [self.imageView addSubview:self.labelView];
@@ -135,7 +181,7 @@ static CGFloat    kContentOffsetY       =  -1.f;
 - (id)init {
     if(self = [super init]) {
         // set up the labels
-        [self initLabelsWithContentOffsetY:kContentOffsetY];
+        [self initLabels];
         
         // set up the scrollView
         self.scrollView = [[UIScrollView alloc] init];
