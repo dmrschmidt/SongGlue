@@ -42,9 +42,8 @@ static CGFloat    kContentOffsetY       =  -1.f;
         // For this example, we're only interested in the first item.
         NSUInteger count = [group numberOfAssets];
         if(count > 0) {
-            NSUInteger index = arc4random() % count;
-            NSLog(@"count: %@, index: %@", [NSNumber numberWithInt:count], [NSNumber numberWithInt:index]);
-            [group enumerateAssetsAtIndexes:[NSIndexSet indexSetWithIndex:index]
+            NSUInteger randomIndex = arc4random() % count;
+            [group enumerateAssetsAtIndexes:[NSIndexSet indexSetWithIndex:randomIndex]
                                     options:0
                                  usingBlock:^(ALAsset *alAsset, NSUInteger index, BOOL *innerStop) {
                                      
@@ -52,7 +51,10 @@ static CGFloat    kContentOffsetY       =  -1.f;
                 if (alAsset) {
                     ALAssetRepresentation *representation = [alAsset defaultRepresentation];
                     // Do something interesting with the AV asset.
-                    self.imageView.image = [UIImage imageWithCGImage:[representation fullResolutionImage]];
+                    self.imageView.image = [UIImage imageWithCGImage:
+                                            [representation fullResolutionImage]
+                                                               scale:1.0
+                                                         orientation:UIImageOrientationUp];
                 }
             }];
         }
@@ -69,21 +71,28 @@ static CGFloat    kContentOffsetY       =  -1.f;
 - (void)initLabelsWithContentOffsetY:(CGFloat)contentOffsetY {
     // first, init the label's parent container view
     self.labelView = [[UIView alloc] initWithFrame:CGRectMake(kLabelBorderSides,
-                                                              kLabelBorderTop + contentOffsetY,
+                                                              // TODO remove the hard-coded number here
+                                                              kLabelBorderTop + contentOffsetY + 200,
                                                               kLabelContainerWidth,
                                                               kLabelContainerHeight)];
     self.labelView.autoresizesSubviews = YES;
-    // TODO: make the image view a property, of course
-    // TODO: also, make the imageView a sperate view
-    CGRect frame = CGRectMake(0, 0, 200, 200);
-    self.imageView = [[UIImageView alloc] initWithFrame:frame];
-    self.imageView.contentMode = UIViewContentModeScaleAspectFill;
-    NSMutableArray *labels = [[NSMutableArray alloc] initWithCapacity:kLabelCount];
+    // TODO: Make the imageView a sperate view, which will hold the black border.
+    // TODO: Make the frame setting better. (not hardcoded)              // 313 = current size of black background image
+    CGRect frame = CGRectMake(15, 40, kLabelContainerWidth - 10, 313);
+    UIImageView *borderView = [[UIImageView alloc] initWithFrame:frame];
+    borderView.image = [UIImage imageNamed:@"black_border"];
+    borderView.contentMode = UIViewContentModeScaleAspectFill;
     
+    frame = CGRectMake(12, 12, kLabelContainerWidth - 35, 251);
+    self.imageView = [[UIImageView alloc] initWithFrame:frame];
+    self.imageView.clipsToBounds = YES;
+    self.imageView.contentMode = UIViewContentModeScaleAspectFill;
+    
+    NSMutableArray *labels = [[NSMutableArray alloc] initWithCapacity:kLabelCount];
     for(int labelIndex = 0; labelIndex < kLabelCount; labelIndex++) {
         UILabel *label = [[UILabel alloc] init];
         label.backgroundColor = [UIColor clearColor];
-        label.font = [UIFont fontWithName:@"AmericanTypewriter-Bold" size:23.0];
+        label.font = [UIFont fontWithName:@"AmericanTypewriter-Bold" size:12.0];
         label.textAlignment = UITextAlignmentCenter;
         label.textColor = [UIColor lightTextColor];
         label.numberOfLines = 1;
@@ -97,11 +106,10 @@ static CGFloat    kContentOffsetY       =  -1.f;
                                  (kLabelContainerHeight / kLabelCount) * labelIndex,
                                  kLabelContainerWidth - 10,
                                  (kLabelContainerHeight / kLabelCount));
-        
-        
-        [self.labelView addSubview:self.imageView];
-        [self.imageView addSubview:label];
-//        [self.labelView addSubview:label];
+        [self addSubview:borderView];
+        [borderView addSubview:self.imageView];
+        [self.imageView addSubview:self.labelView];
+        [self.labelView addSubview:label];
         [labels addObject:label];
         [label release];
     }
@@ -240,6 +248,15 @@ BOOL isShaking = NO;
 - (void)shakeVerticalRecursiveStartingAt:(NSUInteger)loopCount {
     if(loopCount > 4) {
         isShaking = NO;
+        // TODO: Don't do this while user is "holding onto" the image, i.e. touching
+        //       the phone while shaking. (think about it, though, but on first glance
+        //       it seems like an intuitive thing to do.
+        //       USER TEST!!!
+        // TODO: Refactor this into a callback method or something else. The thing is,
+        //       we need to call the updateImage AFTER the shake animation, cause
+        //       otherwise the same thread will be used and the animation won't show
+        //       since image loading takes a bit. Also: do it in horizontal shaking as well!
+        [self updateImage];
         return;
     }
     isShaking = YES;

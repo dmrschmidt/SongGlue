@@ -24,6 +24,7 @@
 		9FEDA34B125BC13100D0F59C /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 9FEDA344125BC13100D0F59C /* iTunesArtwork */; };
 		C330EDBE13EF69860038059A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C330EDBD13EF69860038059A /* AudioToolbox.framework */; };
 		C330EDC013EF74B30038059A /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C330EDBF13EF74B30038059A /* AssetsLibrary.framework */; };
+		C330EDC213EF82340038059A /* black_border@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C330EDC113EF82340038059A /* black_border@2x.png */; };
 		C35C4B5513ECC17C0027A6ED /* GlueView.m in Sources */ = {isa = PBXBuildFile; fileRef = C35C4B5413ECC17C0027A6ED /* GlueView.m */; };
 		C367DC0513ED58BB00EA3138 /* refresh@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C367DC0313ED58BB00EA3138 /* refresh@2x.png */; };
 		C367DC0613ED58BB00EA3138 /* world@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C367DC0413ED58BB00EA3138 /* world@2x.png */; };
@@ -83,6 +84,7 @@
 		C330EDBA13EF696B0038059A /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		C330EDBD13EF69860038059A /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		C330EDBF13EF74B30038059A /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		C330EDC113EF82340038059A /* black_border@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "black_border@2x.png"; sourceTree = "<group>"; };
 		C35C4B5313ECC17C0027A6ED /* GlueView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GlueView.h; path = Shared/GlueView.h; sourceTree = "<group>"; };
 		C35C4B5413ECC17C0027A6ED /* GlueView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GlueView.m; path = Shared/GlueView.m; sourceTree = "<group>"; };
 		C367DC0313ED58BB00EA3138 /* refresh@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "refresh@2x.png"; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 		9FEDA33D125BC13100D0F59C /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				C330EDC113EF82340038059A /* black_border@2x.png */,
 				C3EB249013EDEB0E00276C1D /* world_bg@2x.jpeg */,
 				C367DC0713ED592B00EA3138 /* refresh.png */,
 				C367DC0813ED592B00EA3138 /* world.png */,
@@ -390,6 +393,7 @@
 				C367DC2513ED5B4D00EA3138 /* WorldGlueViewController.xib in Resources */,
 				C3EB248913EDDBE800276C1D /* FavoritesViewController.xib in Resources */,
 				C3EB249313EDEB0E00276C1D /* world_bg@2x.jpeg in Resources */,
+				C330EDC213EF82340038059A /* black_border@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -102,6 +102,7 @@ static BOOL scrolled = NO;
             // TODO: Looks like GlueView should rather be accessed through a new
             //       GlueViewController. Calling shuffle on a view seems too much logic
             //       for the view alone maybe.
+            // TODO: When the phone is tapped, while shaking, fix the image and don't swap it as well!
             [[self currentGlueView] shuffle];
             [[self currentGlueView] shakeVertical];
             // TODO: make the vibrating optional in the settings (use iOS settings app!)

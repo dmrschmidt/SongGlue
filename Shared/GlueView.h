@@ -11,6 +11,7 @@
 #import "Glue.h"
 
 @interface GlueView : UIView <UIScrollViewDelegate> {
+    UIImageView *_borderImageView;
     UIImageView *_imageView;
     UIView *_labelView;
     NSArray *_labels;
@@ -27,6 +28,7 @@
 - (void)shakeVertical;
 - (void)shuffle;
 
+@property(nonatomic, retain) UIImageView *borderImageView;
 @property(nonatomic, retain) UIImageView *imageView;
 @property(nonatomic, retain) UIView *labelView;
 @property(nonatomic, retain) NSArray *labels;
