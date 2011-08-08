@@ -10,14 +10,15 @@
 
 @implementation WorldGlueViewController
 
-- (GlueView *)buildGlueView {
-    GlueView *glueView = [super buildGlueView]; 
-    glueView.labelView.frame = CGRectMake(glueView.labelView.frame.origin.x,
-                                          glueView.labelView.frame.origin.y + 180,
-                                          glueView.labelView.frame.size.width,
-                                          glueView.labelView.frame.size.width);
-    glueView.scrollView.scrollEnabled = NO;
-    return glueView;
-}
+// temp disabled
+//- (GlueView *)buildGlueView {
+//    GlueView *glueView = [super buildGlueView]; 
+//    glueView.labelView.frame = CGRectMake(glueView.labelView.frame.origin.x,
+//                                          glueView.labelView.frame.origin.y + 180,
+//                                          glueView.labelView.frame.size.width,
+//                                          glueView.labelView.frame.size.width);
+//    glueView.scrollView.scrollEnabled = NO;
+//    return glueView;
+//}
 
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "GlueViewController.h"
-
-@interface WorldGlueViewController : GlueViewController
+                                    // only temp switch back to default
+@interface WorldGlueViewController : UIViewController // GlueViewController
 
 @end
