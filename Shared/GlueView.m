@@ -17,6 +17,7 @@ static CGFloat    kLabelContainerWidth  = 300.f;
 static CGFloat    kLabelContainerHeight =  81.f;
 static CGFloat    kAnimationThreshold   = 350.f;
 static CGFloat    kAlphaZeroThreshold   = 560.f;
+static CGFloat    kContentOffsetY       =  -1.f;
 
 @synthesize labelView = _labelView;
 @synthesize labels = _labels;
@@ -24,6 +25,8 @@ static CGFloat    kAlphaZeroThreshold   = 560.f;
 @synthesize index = _index;
 @synthesize glue = _glue;
 
+// TODO: can I actually get rid of kContentOffsetY now, since the vertical scrollbar
+// will never differ in contentOffset anymore?
 - (void)initLabelsWithContentOffsetY:(CGFloat)contentOffsetY {
     // first, init the label's parent container view
     self.labelView = [[UIView alloc] initWithFrame:CGRectMake(kLabelBorderSides,
@@ -60,21 +63,24 @@ static CGFloat    kAlphaZeroThreshold   = 560.f;
 }
 
 - (void)repositionScrollView {
-    CGFloat contentOffsetY = [[UIScreen mainScreen] bounds].size.height * 3 / 4;
-    CGRect frame = CGRectMake(0, 0, // TODO: get rid of the hardcoded 70 here
+    CGRect frame = CGRectMake(0, 0,
                               [[UIScreen mainScreen] bounds].size.width,
-                              [[UIScreen mainScreen] bounds].size.height - 70);
+                              [[UIScreen mainScreen] bounds].size.height);
     self.scrollView.frame = frame;
-    self.scrollView.contentSize = CGSizeMake(frame.size.width, frame.size.height * 3);
-    self.scrollView.contentOffset = CGPointMake(0, contentOffsetY);
+    // This one pixel being added to height is to make the (vertival) scrollbar have
+    // this "bounce back" effect. If contentSize equaled the actual (frame) size, it
+    // would simply disable scrolling automatically.
+    // Just adding +1 to it keeps the effect, but we still don't need to care about
+    // re-positioning. Only one pixel difference in position will not be percepted
+    // by users in the context of the labels.
+    self.scrollView.contentSize = CGSizeMake(frame.size.width, frame.size.height + 1);
+    self.scrollView.contentOffset = CGPointMake(0, kContentOffsetY);
 }
 
 - (id)init {
     if(self = [super init]) {
-        CGFloat contentOffsetY = [[UIScreen mainScreen] bounds].size.height * 3 / 4;
-        
         // set up the labels
-        [self initLabelsWithContentOffsetY:contentOffsetY];
+        [self initLabelsWithContentOffsetY:kContentOffsetY];
         
         // set up the scrollView
         self.scrollView = [[UIScrollView alloc] init];
@@ -111,31 +117,22 @@ static CGFloat    kAlphaZeroThreshold   = 560.f;
     
     /* make the content shrink, so it appears as if it would drop into the
      * "Favorites" tab bar icon */
-    CGFloat resizeFactor = MIN(kAnimationThreshold, scrollView.contentOffset.y) / kAnimationThreshold;
-    CGRect newFrame = CGRectMake(oldFrame.origin.x,
-                                 oldFrame.origin.y,
-                                 kLabelContainerWidth * resizeFactor,
-                                 kLabelContainerHeight * resizeFactor);
-    self.labelView.frame = newFrame;
-    self.labelView.center = oldCenter;
+//    CGFloat resizeFactor = MIN(kAnimationThreshold, scrollView.contentOffset.y) / kAnimationThreshold;
+//    CGRect newFrame = CGRectMake(oldFrame.origin.x,
+//                                 oldFrame.origin.y,
+//                                 kLabelContainerWidth * resizeFactor,
+//                                 kLabelContainerHeight * resizeFactor);
+//    self.labelView.frame = newFrame;
+//    self.labelView.center = oldCenter;
 }
+
+#pragma mark -
+#pragma mark Text Display Mode changing
 
 - (void)updateText {
     for(int labelIndex = 0; labelIndex < kLabelCount; labelIndex++) {
         ((UILabel *)[self.labels objectAtIndex:labelIndex]).text = [self.glue gluePartForIndex:labelIndex];
     }
-}
-
-- (void)configureAtIndex:(NSUInteger)index withGlue:(Glue *)glue {
-    self.frame = CGRectMake([[UIScreen mainScreen] bounds].size.width * index,
-                            0,
-                            [[UIScreen mainScreen] bounds].size.width,
-                            // TODO: get rid of the hardcoded 70 here
-                            [[UIScreen mainScreen] bounds].size.height - 70);
-    self.index = index;
-    self.glue = glue;
-    [self repositionScrollView];
-    [self updateText];
 }
 
 - (IBAction)toggleDisplayMode:(id)sender {
@@ -153,6 +150,23 @@ static CGFloat    kAlphaZeroThreshold   = 560.f;
     [self.glue shuffle];
     [self updateText];
 }
+
+#pragma mark -
+#pragma mark Configuring
+
+- (void)configureAtIndex:(NSUInteger)index withGlue:(Glue *)glue {
+    self.frame = CGRectMake([[UIScreen mainScreen] bounds].size.width * index,
+                            0,
+                            [[UIScreen mainScreen] bounds].size.width,
+                            [[UIScreen mainScreen] bounds].size.height);
+    self.index = index;
+    self.glue = glue;
+    [self repositionScrollView];
+    [self updateText];
+}
+
+#pragma mark -
+#pragma mark Shaking functionality
 
 CGPoint center;
 BOOL isShaking = NO;
@@ -173,10 +187,6 @@ BOOL isShaking = NO;
 - (void)shakeHorizontally {
     center = self.labelView.center;
     [self shakeRecursiveStartingAt:0];
-}
-
-- (void)shake {
-    [self shakeHorizontally];
 }
 
 - (void)shakeVerticalRecursiveStartingAt:(NSUInteger)loopCount {
@@ -200,6 +210,8 @@ BOOL isShaking = NO;
     [self shakeVerticalRecursiveStartingAt:0];
 }
 
-
+- (void)shake {
+    [self shakeHorizontally];
+}
 
 @end

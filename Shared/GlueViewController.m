@@ -104,7 +104,12 @@ static BOOL scrolled = NO;
             //       for the view alone maybe.
             [[self currentGlueView] shuffle];
             [[self currentGlueView] shakeVertical];
-            [self playAudio];
+            // TODO: make the vibrating optional in the settings (use iOS settings app!)
+            // TODO: also, make the shake detection cleverer
+            AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+            // TODO: only play audio when something else is happening
+            //       (make it a (clever featured -> user should find it awesome) easter egg)
+//            [self playAudio];
         }
     }
 }

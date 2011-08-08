@@ -22,6 +22,7 @@
 		9FEDA348125BC13100D0F59C /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FEDA341125BC13100D0F59C /* Icon-Small@2x.png */; };
 		9FEDA349125BC13100D0F59C /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FEDA342125BC13100D0F59C /* Icon.png */; };
 		9FEDA34B125BC13100D0F59C /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 9FEDA344125BC13100D0F59C /* iTunesArtwork */; };
+		C330EDBE13EF69860038059A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C330EDBD13EF69860038059A /* AudioToolbox.framework */; };
 		C35C4B5513ECC17C0027A6ED /* GlueView.m in Sources */ = {isa = PBXBuildFile; fileRef = C35C4B5413ECC17C0027A6ED /* GlueView.m */; };
 		C367DC0513ED58BB00EA3138 /* refresh@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C367DC0313ED58BB00EA3138 /* refresh@2x.png */; };
 		C367DC0613ED58BB00EA3138 /* world@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C367DC0413ED58BB00EA3138 /* world@2x.png */; };
@@ -78,6 +79,8 @@
 		9FEDA341125BC13100D0F59C /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
 		9FEDA342125BC13100D0F59C /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		9FEDA344125BC13100D0F59C /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
+		C330EDBA13EF696B0038059A /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		C330EDBD13EF69860038059A /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		C35C4B5313ECC17C0027A6ED /* GlueView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GlueView.h; path = Shared/GlueView.h; sourceTree = "<group>"; };
 		C35C4B5413ECC17C0027A6ED /* GlueView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GlueView.m; path = Shared/GlueView.m; sourceTree = "<group>"; };
 		C367DC0313ED58BB00EA3138 /* refresh@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "refresh@2x.png"; sourceTree = "<group>"; };
@@ -128,6 +131,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C330EDBE13EF69860038059A /* AudioToolbox.framework in Frameworks */,
 				C36BB9E913EC301100AE1A35 /* AVFoundation.framework in Frameworks */,
 				C36BB9C913EB58E400AE1A35 /* MediaPlayer.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
@@ -163,6 +167,8 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				C330EDBD13EF69860038059A /* AudioToolbox.framework */,
+				C330EDBA13EF696B0038059A /* CoreAudio.framework */,
 				9F2632BF1263890E00DA83F1 /* ReadMe.txt */,
 				28EEBF621118D79A00187D67 /* Shared */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
