@@ -15,8 +15,8 @@ static CGFloat    kBorderViewBorderTop  =  40.f;
 static CGFloat    kBorderViewWidth      = 290.f;
 static CGFloat    kImageViewHeight      = 232.f;
 static CGFloat    kImageViewBorderTop   =  32.f;
-static CGFloat    kLabelBorderTop       =  39.f;
-static CGFloat    kLabelBorderSides     =  10.f;
+static CGFloat    kLabelBorderTop       =  0.f;
+static CGFloat    kLabelBorderSides     =  -5.f;
 static CGFloat    kLabelContainerWidth  = 280.f;
 // the 400 is quite random!
 static CGFloat    kLabelContainerHeight = 400.f;
@@ -119,17 +119,6 @@ BOOL _isGettingImage = NO;
                                                               kLabelContainerWidth,
                                                               kLabelContainerHeight)];
     self.labelView.autoresizesSubviews = YES;
-    // TODO: Make the imageView a sperate view, which will hold the black border.
-    // TODO: Make the frame setting better. (not hardcoded)              // 313 = current size of black background image
-    CGRect frame = CGRectMake(15, kBorderViewBorderTop, kBorderViewWidth, 313);
-    UIImageView *borderView = [[UIImageView alloc] initWithFrame:frame];
-    borderView.image = [UIImage imageNamed:@"black_border"];
-    borderView.contentMode = UIViewContentModeScaleAspectFill;
-    
-    frame = CGRectMake(12, kImageViewBorderTop, kBorderViewWidth - 25, kImageViewHeight);
-    self.imageView = [[UIImageView alloc] initWithFrame:frame];
-    self.imageView.clipsToBounds = YES;
-    self.imageView.contentMode = UIViewContentModeScaleAspectFill;
     
     NSMutableArray *labels = [[NSMutableArray alloc] initWithCapacity:kLabelCount];
     for(int labelIndex = 0; labelIndex < kLabelCount; labelIndex++) {
@@ -152,13 +141,12 @@ BOOL _isGettingImage = NO;
         label.lineBreakMode = UILineBreakModeTailTruncation;
         label.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         label.frame = CGRectMake(15, offsetY, kLabelContainerWidth - 10, height);
-        [self addSubview:borderView];
-        [borderView addSubview:self.imageView];
-        [self.imageView addSubview:self.labelView];
+        
         [self.labelView addSubview:label];
         [labels addObject:label];
         [label release];
     }
+    
     self.labels = [NSArray arrayWithArray:labels];
     [labels release];
 }
@@ -189,9 +177,23 @@ BOOL _isGettingImage = NO;
         self.scrollView.delegate = self;
         [self repositionScrollView];
         
+        // TODO: Make the imageView a sperate view, which will hold the black border.
+        // TODO: Make the frame setting better. (not hardcoded)              // 313 = current size of black background image
+        CGRect frame = CGRectMake(15, kBorderViewBorderTop, kBorderViewWidth, 313);
+        self.borderImageView = [[UIImageView alloc] initWithFrame:frame];
+        self.borderImageView.image = [UIImage imageNamed:@"black_border"];
+        self.borderImageView.contentMode = UIViewContentModeScaleAspectFill;
+        
+        frame = CGRectMake(12, kImageViewBorderTop, kBorderViewWidth - 25, kImageViewHeight);
+        self.imageView = [[UIImageView alloc] initWithFrame:frame];
+        self.imageView.clipsToBounds = YES;
+        self.imageView.contentMode = UIViewContentModeScaleAspectFill;
+        
         // set up the hierarchy
         [self addSubview:self.scrollView];
-        [self.scrollView addSubview:self.labelView];
+        [self.scrollView addSubview:self.borderImageView];
+        [self.borderImageView addSubview:self.imageView];
+        [self.borderImageView addSubview:self.labelView];
     }
     return self;
 }
@@ -282,12 +284,12 @@ BOOL isShaking = NO;
     CGFloat newCenterX = center.x + (20 * pow(-1, loopCount));
     if(loopCount == 4) newCenterX = center.x;
     [UIView animateWithDuration:0.1
-                     animations:^{self.labelView.center = CGPointMake(newCenterX, center.y);}
+                     animations:^{self.borderImageView.center = CGPointMake(newCenterX, center.y);}
                      completion:^(BOOL finished){ [self shakeRecursiveStartingAt:(loopCount+1)]; }];
 }
 
 - (void)shakeHorizontally {
-    center = self.labelView.center;
+    center = self.borderImageView.center;
     [self shakeRecursiveStartingAt:0];
 }
 
@@ -309,7 +311,7 @@ BOOL isShaking = NO;
     CGFloat newCenterY = center.y + (10 * pow(-1, loopCount));
     if(loopCount == 4) newCenterY = center.y;
     [UIView animateWithDuration:0.05
-                     animations:^{self.labelView.center = CGPointMake(center.x, newCenterY);}
+                     animations:^{self.borderImageView.center = CGPointMake(center.x, newCenterY);}
                      completion:^(BOOL finished){
                          [self shakeVerticalRecursiveStartingAt:(loopCount+1)];
                      }
@@ -317,7 +319,7 @@ BOOL isShaking = NO;
 }
 
 - (void)shakeVertical {
-    center = self.labelView.center;
+    center = self.borderImageView.center;
     [self shakeVerticalRecursiveStartingAt:0];
 }
 
