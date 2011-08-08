@@ -99,7 +99,6 @@ static CGFloat    kAlphaZeroThreshold   = 560.f;
      * THE ANIMATION WOULD THAN BE REALLY SMOOTH (OR SO I GUESS) AND
      * THERE SHOULD BE NO "GLITCHES" WITH THE LABELS EITHER.
      */
-    
     // store the old center and frame
     CGPoint oldCenter = self.labelView.center;
     CGRect  oldFrame  = self.labelView.frame;
@@ -190,7 +189,10 @@ BOOL isShaking = NO;
     if(loopCount == 4) newCenterY = center.y;
     [UIView animateWithDuration:0.05
                      animations:^{self.labelView.center = CGPointMake(center.x, newCenterY);}
-                     completion:^(BOOL finished){ [self shakeVerticalRecursiveStartingAt:(loopCount+1)]; }];
+                     completion:^(BOOL finished){
+                         [self shakeVerticalRecursiveStartingAt:(loopCount+1)];
+                     }
+     ];
 }
 
 - (void)shakeVertical {
