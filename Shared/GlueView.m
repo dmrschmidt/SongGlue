@@ -88,6 +88,7 @@ BOOL _isGettingImage = NO;
                                          UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
                                          UIGraphicsEndImageContext();
                                          self.imageView.image = newImage;
+                                         [_imageSpinner stopAnimating];
                                      }
                                  }];
         }
@@ -111,7 +112,11 @@ BOOL _isGettingImage = NO;
     }
 }
 
-// will never differ in contentOffset anymore?
+- (void)resetImage {
+    self.imageView.image = nil;
+    [_imageSpinner startAnimating];
+}
+
 - (void)initLabels {
     // first, init the label's parent container view
     self.labelView = [[UIView alloc] initWithFrame:CGRectMake(kLabelBorderSides,
@@ -194,6 +199,13 @@ BOOL _isGettingImage = NO;
         [self.scrollView addSubview:self.borderImageView];
         [self.borderImageView addSubview:self.imageView];
         [self.borderImageView addSubview:self.labelView];
+        
+        // add a spinner view
+        _imageSpinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+        [self.borderImageView addSubview:_imageSpinner];
+        _imageSpinner.center = CGPointMake(round(CGRectGetWidth(self.borderImageView.bounds) / 2),
+                                           round(CGRectGetHeight(self.borderImageView.bounds) / 2));
+        [self resetImage];
     }
     return self;
 }
@@ -304,7 +316,7 @@ BOOL isShaking = NO;
         //       we need to call the updateImage AFTER the shake animation, cause
         //       otherwise the same thread will be used and the animation won't show
         //       since image loading takes a bit. Also: do it in horizontal shaking as well!
-        [self updateImage];
+//        [self updateImage];
         return;
     }
     isShaking = YES;

@@ -132,6 +132,7 @@ static BOOL scrolled = NO;
     // Recycle no longer-needed pages
     for(GlueView *page in self.visiblePages) {
         if(page.index < firstNeededPageIndex || page.index > lastNeededPageIndex) {
+            [page resetImage];
             [self.recycledPages addObject:page];
             [page removeFromSuperview];
         }

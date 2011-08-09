@@ -17,12 +17,15 @@
     NSArray *_labels;
     UIScrollView *_scrollView;
     NSUInteger _index;
-    
     Glue *_glue;
+    
+@private
+    UIActivityIndicatorView *_imageSpinner;
 }
 
 - (void)configureAtIndex:(NSUInteger)index withGlue:(Glue *)glue;
 - (IBAction)toggleDisplayMode:(id)sender;
+- (void)resetImage;
 - (void)shake __attribute__ ((deprecated));
 - (void)shakeHorizontally;
 - (void)shakeVertical;
