@@ -81,7 +81,7 @@ BOOL _isGettingImage = NO;
                                          // Do something interesting with the AV asset.
                                          UIImage *rawImage = [UIImage imageWithCGImage:[representation fullResolutionImage]
                                                                                  scale:1.0
-                                                                           orientation:UIImageOrientationUp];
+                                                                           orientation:(UIImageOrientation)[representation orientation]];
                                          CGSize newSize = [self getMinimalSizeForSize:rawImage.size];
                                          UIGraphicsBeginImageContext(newSize);
                                          [rawImage drawInRect:CGRectMake(0,0,newSize.width,newSize.height)];
