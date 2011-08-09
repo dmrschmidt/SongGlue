@@ -6,9 +6,9 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "GlueView.h"
+#import "GlueContainerView.h"
 
-@implementation GlueView
+@implementation GlueContainerView
 
 static NSUInteger kLabelCount           =   3;
 static CGFloat    kBorderViewBorderTop  =  40.f;
@@ -157,9 +157,7 @@ BOOL _isGettingImage = NO;
 }
 
 - (void)repositionScrollView {
-    CGRect frame = CGRectMake(0, 0,
-                              [[UIScreen mainScreen] bounds].size.width,
-                              [[UIScreen mainScreen] bounds].size.height);
+    CGRect frame = CGRectMake(15, kBorderViewBorderTop, kBorderViewWidth, 313);
     self.scrollView.frame = frame;
     // This one pixel being added to height is to make the (vertival) scrollbar have
     // this "bounce back" effect. If contentSize equaled the actual (frame) size, it
@@ -180,11 +178,14 @@ BOOL _isGettingImage = NO;
         self.scrollView = [[UIScrollView alloc] init];
         self.scrollView.showsVerticalScrollIndicator = NO;
         self.scrollView.delegate = self;
+        self.scrollView.clipsToBounds = NO;
         [self repositionScrollView];
         
         // TODO: Make the imageView a sperate view, which will hold the black border.
         // TODO: Make the frame setting better. (not hardcoded)              // 313 = current size of black background image
-        CGRect frame = CGRectMake(15, kBorderViewBorderTop, kBorderViewWidth, 313);
+        CGRect frame = CGRectMake(0, 0,
+                                  self.scrollView.bounds.size.width,
+                                  self.scrollView.bounds.size.height);
         self.borderImageView = [[UIImageView alloc] initWithFrame:frame];
         self.borderImageView.image = [UIImage imageNamed:@"black_border"];
         self.borderImageView.contentMode = UIViewContentModeScaleAspectFill;
@@ -252,13 +253,7 @@ BOOL _isGettingImage = NO;
 
 - (IBAction)toggleDisplayMode:(id)sender {
     [self.glue toggleGenerationMode];
-    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:0.5];
-    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight
-                           forView:self
-                             cache:YES];
     [self updateText];
-    [UIView commitAnimations];
 }
 
 - (void)shuffle {

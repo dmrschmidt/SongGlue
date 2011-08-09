@@ -10,7 +10,7 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 #import "Glue.h"
 
-@interface GlueView : UIView <UIScrollViewDelegate> {
+@interface GlueContainerView : UIView <UIScrollViewDelegate> {
     UIImageView *_borderImageView;
     UIImageView *_imageView;
     UIView *_labelView;

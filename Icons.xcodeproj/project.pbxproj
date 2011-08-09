@@ -25,7 +25,10 @@
 		C330EDBE13EF69860038059A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C330EDBD13EF69860038059A /* AudioToolbox.framework */; };
 		C330EDC013EF74B30038059A /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C330EDBF13EF74B30038059A /* AssetsLibrary.framework */; };
 		C330EDC213EF82340038059A /* black_border@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C330EDC113EF82340038059A /* black_border@2x.png */; };
-		C35C4B5513ECC17C0027A6ED /* GlueView.m in Sources */ = {isa = PBXBuildFile; fileRef = C35C4B5413ECC17C0027A6ED /* GlueView.m */; };
+		C330EDDE13F1A8E70038059A /* GlueDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C330EDDD13F1A8E70038059A /* GlueDetailView.xib */; };
+		C330EDE213F1AD0F0038059A /* GlueDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = C330EDE113F1AD0F0038059A /* GlueDetailView.m */; };
+		C330EDE913F1F0670038059A /* GlueMasterView.m in Sources */ = {isa = PBXBuildFile; fileRef = C330EDE813F1F0670038059A /* GlueMasterView.m */; };
+		C35C4B5513ECC17C0027A6ED /* GlueContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C35C4B5413ECC17C0027A6ED /* GlueContainerView.m */; };
 		C367DC0513ED58BB00EA3138 /* refresh@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C367DC0313ED58BB00EA3138 /* refresh@2x.png */; };
 		C367DC0613ED58BB00EA3138 /* world@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C367DC0413ED58BB00EA3138 /* world@2x.png */; };
 		C367DC0913ED592B00EA3138 /* refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = C367DC0713ED592B00EA3138 /* refresh.png */; };
@@ -85,8 +88,13 @@
 		C330EDBD13EF69860038059A /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		C330EDBF13EF74B30038059A /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		C330EDC113EF82340038059A /* black_border@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "black_border@2x.png"; sourceTree = "<group>"; };
-		C35C4B5313ECC17C0027A6ED /* GlueView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GlueView.h; path = Shared/GlueView.h; sourceTree = "<group>"; };
-		C35C4B5413ECC17C0027A6ED /* GlueView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GlueView.m; path = Shared/GlueView.m; sourceTree = "<group>"; };
+		C330EDDD13F1A8E70038059A /* GlueDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GlueDetailView.xib; path = Shared/GlueDetailView.xib; sourceTree = "<group>"; };
+		C330EDE013F1AD0F0038059A /* GlueDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GlueDetailView.h; path = Shared/GlueDetailView.h; sourceTree = "<group>"; };
+		C330EDE113F1AD0F0038059A /* GlueDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GlueDetailView.m; path = Shared/GlueDetailView.m; sourceTree = "<group>"; };
+		C330EDE713F1F0670038059A /* GlueMasterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GlueMasterView.h; path = Shared/GlueMasterView.h; sourceTree = "<group>"; };
+		C330EDE813F1F0670038059A /* GlueMasterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GlueMasterView.m; path = Shared/GlueMasterView.m; sourceTree = "<group>"; };
+		C35C4B5313ECC17C0027A6ED /* GlueContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; name = GlueContainerView.h; path = Shared/GlueContainerView.h; sourceTree = "<group>"; };
+		C35C4B5413ECC17C0027A6ED /* GlueContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GlueContainerView.m; path = Shared/GlueContainerView.m; sourceTree = "<group>"; };
 		C367DC0313ED58BB00EA3138 /* refresh@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "refresh@2x.png"; sourceTree = "<group>"; };
 		C367DC0413ED58BB00EA3138 /* world@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "world@2x.png"; sourceTree = "<group>"; };
 		C367DC0713ED592B00EA3138 /* refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = refresh.png; sourceTree = "<group>"; };
@@ -217,6 +225,7 @@
 				8D1107310486CEB800E47090 /* Icons-Info.plist */,
 				9FEDA33D125BC13100D0F59C /* Images */,
 				9F2BD5F21263DA8A0016473B /* Settings.bundle */,
+				C330EDDD13F1A8E70038059A /* GlueDetailView.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -304,8 +313,12 @@
 		C3A65B7813EF2DBF0078D4C8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				C35C4B5313ECC17C0027A6ED /* GlueView.h */,
-				C35C4B5413ECC17C0027A6ED /* GlueView.m */,
+				C35C4B5313ECC17C0027A6ED /* GlueContainerView.h */,
+				C35C4B5413ECC17C0027A6ED /* GlueContainerView.m */,
+				C330EDE013F1AD0F0038059A /* GlueDetailView.h */,
+				C330EDE113F1AD0F0038059A /* GlueDetailView.m */,
+				C330EDE713F1F0670038059A /* GlueMasterView.h */,
+				C330EDE813F1F0670038059A /* GlueMasterView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -394,6 +407,7 @@
 				C3EB248913EDDBE800276C1D /* FavoritesViewController.xib in Resources */,
 				C3EB249313EDEB0E00276C1D /* world_bg@2x.jpeg in Resources */,
 				C330EDC213EF82340038059A /* black_border@2x.png in Resources */,
+				C330EDDE13F1A8E70038059A /* GlueDetailView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,7 +421,7 @@
 				9F2632D812638B5C00DA83F1 /* LocalGlueViewController.m in Sources */,
 				9F2632DC12638B8700DA83F1 /* main.m in Sources */,
 				9FC6A492126CE71E008D73BA /* AppDelegate.m in Sources */,
-				C35C4B5513ECC17C0027A6ED /* GlueView.m in Sources */,
+				C35C4B5513ECC17C0027A6ED /* GlueContainerView.m in Sources */,
 				C367DC1B13ED5B0400EA3138 /* GlueViewController.m in Sources */,
 				C367DC2413ED5B4D00EA3138 /* WorldGlueViewController.m in Sources */,
 				C3EB246613ED8B8A00276C1D /* GlueGenerator.m in Sources */,
@@ -417,6 +431,8 @@
 				C3A65B7113EF2D4E0078D4C8 /* GoogleImageGrabber.m in Sources */,
 				C3A65B7413EF2D620078D4C8 /* LocalImageGrabber.m in Sources */,
 				C3A65B9113EF4ED00078D4C8 /* NSMutableArray+Shuffling.m in Sources */,
+				C330EDE213F1AD0F0038059A /* GlueDetailView.m in Sources */,
+				C330EDE913F1F0670038059A /* GlueMasterView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

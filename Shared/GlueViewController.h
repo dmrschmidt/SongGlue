@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 #import <AudioToolbox/AudioToolbox.h>
-#import "GlueView.h"
+#import "GlueContainerView.h"
 
 @interface GlueViewController : UIViewController <UIAccelerometerDelegate, UIScrollViewDelegate> {
     // common stuff
@@ -35,12 +35,12 @@
 /*
  * Creates and generally configures a new GlueView.
  */
-- (GlueView *)buildGlueView;
+- (GlueContainerView *)buildGlueView;
 
 /*
  *
  */
-- (GlueView *)dequeRecycledPage;
+- (GlueContainerView *)dequeRecycledPage;
 
 /*
  *
