@@ -13,6 +13,7 @@
 static NSUInteger kLabelCount           =   3;
 static CGFloat    kBorderViewBorderTop  =  40.f;
 static CGFloat    kBorderViewWidth      = 290.f;
+static CGFloat    kBorderViewHeight     = 313.f;
 static CGFloat    kImageViewHeight      = 232.f;
 static CGFloat    kImageViewBorderTop   =  32.f;
 static CGFloat    kLabelBorderTop       =  0.f;
@@ -158,7 +159,7 @@ BOOL _isGettingImage = NO;
 }
 
 - (void)repositionScrollView {
-    CGRect frame = CGRectMake(15, kBorderViewBorderTop, kBorderViewWidth, 313);
+    CGRect frame = CGRectMake(15, kBorderViewBorderTop, kBorderViewWidth, kBorderViewHeight);
     self.scrollView.frame = frame;
     // This one pixel being added to height is to make the (vertival) scrollbar have
     // this "bounce back" effect. If contentSize equaled the actual (frame) size, it
@@ -266,7 +267,7 @@ BOOL _isGettingImage = NO;
     //       and adding that as the new subview.
     if(!self.detailView) {
         self.detailView = [[[[NSBundle mainBundle] loadNibNamed:@"GlueDetailView" owner:self options:nil] objectAtIndex:0] retain];
-        self.detailView.center = self.borderImageView.center;
+//        self.detailView.center = self.borderImageView.center;
         self.detailView.hidden = YES;
         [self.borderImageView addSubview:self.detailView];
     }
@@ -282,12 +283,14 @@ BOOL _isGettingImage = NO;
 #pragma mark Configuring
 
 - (void)configureAtIndex:(NSUInteger)index withGlue:(Glue *)glue {
+    NSLog(@"putting at index: %@", [NSNumber numberWithInt:index]);
     self.frame = CGRectMake([[UIScreen mainScreen] bounds].size.width * index,
                             0,
                             [[UIScreen mainScreen] bounds].size.width,
                             [[UIScreen mainScreen] bounds].size.height);
     self.index = index;
     self.glue = glue;
+    [self.detailView setHidden:YES];
     [self repositionScrollView];
     [self updateImage];
     [self updateText];
@@ -352,6 +355,7 @@ BOOL isShaking = NO;
 }
 
 - (void)dealloc {
+    [super dealloc];
     [self.detailView release];
 }
 

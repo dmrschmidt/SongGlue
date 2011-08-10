@@ -27,6 +27,7 @@
 		C330EDC213EF82340038059A /* black_border@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C330EDC113EF82340038059A /* black_border@2x.png */; };
 		C330EDDE13F1A8E70038059A /* GlueDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C330EDDD13F1A8E70038059A /* GlueDetailView.xib */; };
 		C330EDE213F1AD0F0038059A /* GlueDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = C330EDE113F1AD0F0038059A /* GlueDetailView.m */; };
+		C330EDFD13F20B280038059A /* detail_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C330EDFC13F20B270038059A /* detail_bg@2x.png */; };
 		C35C4B5513ECC17C0027A6ED /* GlueMasterView.m in Sources */ = {isa = PBXBuildFile; fileRef = C35C4B5413ECC17C0027A6ED /* GlueMasterView.m */; };
 		C367DC0513ED58BB00EA3138 /* refresh@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C367DC0313ED58BB00EA3138 /* refresh@2x.png */; };
 		C367DC0613ED58BB00EA3138 /* world@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C367DC0413ED58BB00EA3138 /* world@2x.png */; };
@@ -90,7 +91,8 @@
 		C330EDDD13F1A8E70038059A /* GlueDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GlueDetailView.xib; path = Shared/GlueDetailView.xib; sourceTree = "<group>"; };
 		C330EDE013F1AD0F0038059A /* GlueDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GlueDetailView.h; path = Shared/GlueDetailView.h; sourceTree = "<group>"; };
 		C330EDE113F1AD0F0038059A /* GlueDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GlueDetailView.m; path = Shared/GlueDetailView.m; sourceTree = "<group>"; };
-		C35C4B5313ECC17C0027A6ED /* GlueMasterView.h */ = {isa = PBXFileReference; fileEncoding = 4; name = GlueMasterView.h; path = Shared/GlueMasterView.h; sourceTree = "<group>"; };
+		C330EDFC13F20B270038059A /* detail_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "detail_bg@2x.png"; sourceTree = "<group>"; };
+		C35C4B5313ECC17C0027A6ED /* GlueMasterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GlueMasterView.h; path = Shared/GlueMasterView.h; sourceTree = "<group>"; };
 		C35C4B5413ECC17C0027A6ED /* GlueMasterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GlueMasterView.m; path = Shared/GlueMasterView.m; sourceTree = "<group>"; };
 		C367DC0313ED58BB00EA3138 /* refresh@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "refresh@2x.png"; sourceTree = "<group>"; };
 		C367DC0413ED58BB00EA3138 /* world@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "world@2x.png"; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 		9FEDA33D125BC13100D0F59C /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				C330EDFC13F20B270038059A /* detail_bg@2x.png */,
 				C330EDC113EF82340038059A /* black_border@2x.png */,
 				C3EB249013EDEB0E00276C1D /* world_bg@2x.jpeg */,
 				C367DC0713ED592B00EA3138 /* refresh.png */,
@@ -403,6 +406,7 @@
 				C3EB249313EDEB0E00276C1D /* world_bg@2x.jpeg in Resources */,
 				C330EDC213EF82340038059A /* black_border@2x.png in Resources */,
 				C330EDDE13F1A8E70038059A /* GlueDetailView.xib in Resources */,
+				C330EDFD13F20B280038059A /* detail_bg@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
