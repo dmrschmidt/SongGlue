@@ -27,10 +27,10 @@ static BOOL scrolled = NO;
 #pragma mark -
 #pragma mark - Glue methods
 
-- (GlueContainerView *)currentGlueView {
+- (GlueMasterView *)currentGlueView {
     CGRect visibleBounds = self.scrollView.bounds;
     int neededPageIndex = floorf(CGRectGetMinX(visibleBounds) / CGRectGetWidth(visibleBounds));
-    for(GlueContainerView *pageGlueView in self.visiblePages) {
+    for(GlueMasterView *pageGlueView in self.visiblePages) {
         if(pageGlueView.index == neededPageIndex) {
             return pageGlueView;
         }
@@ -41,7 +41,7 @@ static BOOL scrolled = NO;
 - (IBAction)updateTitle:(id)sender {
     CGRect visibleBounds = self.scrollView.bounds;
     int neededPageIndex = floorf(CGRectGetMinX(visibleBounds) / CGRectGetWidth(visibleBounds));
-    GlueContainerView *pageGlueView = [self currentGlueView];
+    GlueMasterView *pageGlueView = [self currentGlueView];
     [pageGlueView configureAtIndex:neededPageIndex withGlue:[GlueGenerator randomGlue]];
 }
 
@@ -51,6 +51,7 @@ static BOOL scrolled = NO;
     [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight
                            forView:[self currentGlueView]
                              cache:YES];
+    [[self currentGlueView] toggleDetailView:self];
 //    UIView *newView = [[[[NSBundle mainBundle] loadNibNamed:@"GlueDetailView" owner:self options:nil] objectAtIndex:0] retain];
 //    newView.frame = [self currentGlueView].borderImageView.bounds;
 //    [[self currentGlueView] addSubview:newView];
@@ -129,8 +130,8 @@ static BOOL scrolled = NO;
 #pragma mark -
 #pragma mark - InfiniteScrollView methods
 
-- (GlueContainerView *)buildGlueView {
-    return [[[GlueContainerView alloc] init] autorelease];
+- (GlueMasterView *)buildGlueView {
+    return [[[GlueMasterView alloc] init] autorelease];
 }
 
 - (void)tilePages {
@@ -141,7 +142,7 @@ static BOOL scrolled = NO;
     lastNeededPageIndex = MIN(lastNeededPageIndex, [self glueCount] - 1);
     
     // Recycle no longer-needed pages
-    for(GlueContainerView *page in self.visiblePages) {
+    for(GlueMasterView *page in self.visiblePages) {
         if(page.index < firstNeededPageIndex || page.index > lastNeededPageIndex) {
             [page resetImage];
             [self.recycledPages addObject:page];
@@ -153,7 +154,7 @@ static BOOL scrolled = NO;
     // add missing pages
     for(int index = firstNeededPageIndex; index <= lastNeededPageIndex; index++) {
         if(![self isDisplayingPageForIndex:index]) {
-            GlueContainerView *glueView = [self dequeRecycledPage];
+            GlueMasterView *glueView = [self dequeRecycledPage];
             if(glueView == nil) {
                 glueView = [self buildGlueView];
             }
@@ -164,8 +165,8 @@ static BOOL scrolled = NO;
     }
 }
 
-- (GlueContainerView *)dequeRecycledPage {
-    GlueContainerView *glueView = [self.recycledPages anyObject];
+- (GlueMasterView *)dequeRecycledPage {
+    GlueMasterView *glueView = [self.recycledPages anyObject];
     if(glueView) {
         [[glueView retain] autorelease];
         [self.recycledPages removeObject:glueView];
@@ -174,7 +175,7 @@ static BOOL scrolled = NO;
 }
 
 - (BOOL)isDisplayingPageForIndex:(NSUInteger)index {
-    for(GlueContainerView *glueView in self.visiblePages) {
+    for(GlueMasterView *glueView in self.visiblePages) {
         if(glueView.index == index) {
             return YES;
         }
@@ -201,7 +202,7 @@ static BOOL scrolled = NO;
     // setting this causes scrollViewDidScroll to NOT execute tiling one time
     scrolled = YES;
     
-    GlueContainerView *toMove = [self currentGlueView];
+    GlueMasterView *toMove = [self currentGlueView];
     // repositioning without animation
     if (self.scrollView.contentOffset.x == 0 || self.scrollView.contentOffset.x == 640) {
         self.scrollView.contentOffset = CGPointMake(320, 0);
